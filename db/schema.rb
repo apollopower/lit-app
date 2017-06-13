@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170613211719) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "conversations", force: :cascade do |t|
     t.boolean "verify"
     t.datetime "created_at", null: false
