@@ -16,3 +16,16 @@
     </ul>
   <% end %>
 </div>
+
+<div class="jumbotron">
+  <h1>Welcome to LiT</h1>
+  <p>
+    <% if current_user %>
+      Welcome, <%=current_user.name%>!
+      <br>
+      <a class="btn btn-lg btn-primary" href="/logout" role="button">Log Out</a>
+    <% else %>
+      <a class="btn btn-lg btn-primary" href="/auth/facebook" role="button">Log In With Facebook</a>
+    <% end %>
+  </p>
+</div>

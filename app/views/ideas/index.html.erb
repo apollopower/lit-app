@@ -5,6 +5,20 @@
 
 <%= link_to "Submit New Idea", new_idea_path %>
 
+
+  <div class="jumbotron">
+    <h1>Welcome to LiT</h1>
+    <p>
+      <% if current_user %>
+        Welcome, <%=current_user.name%>!
+        <br>
+        <a class="btn btn-lg btn-primary" href="/logout" role="button">Log Out</a>
+      <% else %>
+        <a class="btn btn-lg btn-primary" href="/auth/facebook" role="button">Log In With Facebook</a>
+      <% end %>
+    </p>
+  </div>
+
 <%= form_tag(ideas_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search Ideas" %>
     <%= submit_tag "Search", :name => nil %>
@@ -20,7 +34,5 @@
   <p><%= idea.summary %></p>
   <button> Save Idea </button>
   <%= link_to "Vote", idea_path(idea), class: 'like'%>
-  </div>
-
-
+</div>
 <% end %>
