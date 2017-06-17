@@ -1,6 +1,12 @@
 class IdeasController < ApplicationController
   def index
     @ideas = Idea.all
+    #following code to display matching recipes in descending order from the time they were created
+    if params[:search]
+        @ideas = Idea.search(params[:search]).order("created_at DESC")
+      else
+        @ideas = Idea.all.order("created_at DESC")
+    end
   end
 
   def show
@@ -40,13 +46,12 @@ class IdeasController < ApplicationController
     @idea.destroy
 
     redirect_to ideas_path
-
   end
 
   private
 
   def idea_params
-    params.require(:idea).permit(:title,:description)
+    params.require(:idea).permit(:title,:summary,:description, :problem, :guidance)
   end
 
 end

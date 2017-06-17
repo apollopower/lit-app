@@ -1,2 +1,9 @@
-<h1><%= @idea.title %></h1>
+<h1 style="color:green;"> **Alert for idea succcessfully submitted** <h1>
+
+<h3><%= @idea.title %></h3>
+<p><%= @idea.summary %><p>
+<p><%= @idea.problem %><p>
 <p><%= @idea.description %><p>
+<p><%= @idea.guidance %><p>
+
+<%= link_to "Return to Ideas", ideas_path %>
