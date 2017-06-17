@@ -1,3 +1,17 @@
+<div class="jumbotron">
+  <h1>Welcome to LiT!</h1>
+  <p>
+    <% if current_user %>
+      Welcome, <%=current_user.name%>!<br>
+      <%= image_tag current_user.avatar_url %>
+      <br>
+      <a class="btn btn-lg btn-primary" href="/logout" role="button">Log Out</a>
+    <% else %>
+      <a class="btn btn-lg btn-primary" href="/auth/facebook" role="button">Log In With Facebook</a>
+    <% end %>
+  </p>
+</div>
+
 <h1>See Whats LiT</h1>
 
 <% @ideas.each do |idea| %>
