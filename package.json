@@ -1,5 +1,8 @@
 {
   "name": "lit",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "twilio": "^3.4.0"
+  }
 }

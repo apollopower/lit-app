@@ -12,8 +12,6 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery
+//= require twilio
 //= require_tree .
-
-$(document).ready(function(){
-  console.log("Hey there")
-})
