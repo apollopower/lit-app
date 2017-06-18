@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
 
       protected
 
-      def authenticate!
-        redirect_to root_path and return unless signed_in?
-      end
+      # def authenticate!
+      #   redirect_to root_path and return unless signed_in
+      # end
 end
