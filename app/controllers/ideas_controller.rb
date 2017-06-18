@@ -16,7 +16,10 @@ class IdeasController < ApplicationController
   end
 
   def create
-    @idea = Idea.new(idea_params)
+    # @idea = Idea.new(params[:user_id])
+
+    @idea = current_user.ideas.build(idea_params)
+    @idea.user_id = current_user.id
 
     if @idea.save
       redirect_to @idea
