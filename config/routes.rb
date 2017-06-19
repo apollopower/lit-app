@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get 'logout'   => 'sessions#destroy', as: "logout"
 
   post 'tokens' => 'tokens#create'
+  post 'message' => 'message#create'
 end

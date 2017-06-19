@@ -50,7 +50,7 @@ $(function(){
           console.log(channel);
         } else {
           messaginClient.createChannel({
-            uniqueName: 'Jonas_channel_test',
+            uniqueName: $('#conversation_id').val(),
             friendlyName: 'Jonas Channel!'
           }).then(function(channel){
             console.log('Created the Jonas channel...')
@@ -78,3 +78,8 @@ $(function(){
   //   });
   // });
 });
+
+
+// Step 1: I need to instantiate Conversation instance by requesting Conversation
+// Step 2: Idea owner needs to 'accept' and change boolean verify
+// Step 3: Conversation Index links to show page where conversation is created with COnvo ID (Used in JS file to specify channel)
