@@ -2,9 +2,10 @@
   <h1>Welcome to LiT!</h1>
   <p>
     <% if current_user %>
-      Welcome, <%=current_user.name%>!<br>
-      <%= image_tag current_user.avatar_url %>
+      Welcome, <%= current_user.name%>!<br>
+      <%= image_tag current_user.avatar_url, id:'profile-pic' %>
       <br>
+      <%= link_to "Profile", userprofile_path %> |
       <a class="btn btn-lg btn-primary" href="/logout" role="button">Log Out</a>
     <% else %>
       <a class="btn btn-lg btn-primary" href="/auth/facebook" role="button">Log In With Facebook</a>

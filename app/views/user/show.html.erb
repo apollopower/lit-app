@@ -1,0 +1,22 @@
+<h1>Profile </h1>
+
+<%@users.each do |user| %>
+	<%=user.name %> 
+	<br>
+	<br>
+	<%= image_tag user.avatar_url, id: 'profile-pic' %>
+	<% end %>
+	<br>
+	<br>
+
+<%= form_tag '/userprofile' do %>
+
+	Bio: <%= text_area_tag :bio %>
+	<br>
+	<br>
+	Skills: <%= text_area_tag :skills %>
+
+	<br>
+	<br>
+<%= submit_tag "Submit" %>
+<% end %>
