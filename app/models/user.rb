@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :ideas
   # Initializes or updates user object when logging in with Facebook
   has_many :authored_conversations, class_name: 'Conversation', foreign_key: 'author_id'
   has_many :recieved_conversations, class_name: 'Conversation', foreign_key: 'recipient_id'
