@@ -24,8 +24,6 @@ $(function() {
         }
      });
 
-    //  $.post('/tokens.json', function(data) { console.log("data", data) })
-
      $.post("/tokens.json", function(data) {
        username = data.username;
        var accessManager = new Twilio.AccessManager(data.token);
