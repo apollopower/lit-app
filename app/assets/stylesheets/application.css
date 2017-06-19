@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+/* Normalize */
+
+body {
+  font-family: helvetica;
+}
+
+#logo img {
+  max-width: 4em;
+}
+
+.header-content {
+  list-style: none;
+}
+
+.header-content__item {
+  display: inline;
+}

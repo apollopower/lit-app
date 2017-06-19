@@ -13,14 +13,26 @@ class ApplicationController < ActionController::Base
       #   end
       # end
 
-      # def current_user
-      #   begin
-      #     @current_user ||= User.find(session[:user_id]) if session[:user_id]
-      #   rescue
-      #     session[:user_id] = nil
-      #     return nil
-      #   end
-      # end
+      def signed_in
+        current_user.present?
+      end
 
-      # helper_method :current_user
+      helper_method :signed_in
+
+      def current_user
+        begin
+          @current_user ||= User.find(session[:user_id]) if session[:user_id]
+        rescue
+          session[:user_id] = nil
+          return nil
+        end
+      end
+
+      helper_method :current_user
+
+      protected
+
+      # def authenticate!
+      #   redirect_to root_path and return unless signed_in
+      # end
 end

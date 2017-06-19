@@ -1,2 +1,6 @@
 <h1><%= @idea.title %></h1>
 <p><%= @idea.description %><p>
+
+<p>Message the Idea owner</p>
+
+<%= button_to 'Message', 'conversations#create' %>

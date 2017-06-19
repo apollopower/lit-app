@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_many :ideas
   # Initializes or updates user object when logging in with Facebook
+  has_many :authored_conversations, class_name: 'Conversation', foreign_key: 'author_id'
+  has_many :recieved_conversations, class_name: 'Conversation', foreign_key: 'recipient_id'
+
   def self.from_omniauth(auth)
     where(fb_id: auth.uid).first_or_create do |user|
       user.oauth_provider = auth.provider

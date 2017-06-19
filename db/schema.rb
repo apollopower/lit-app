@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170619210834) do
+
+ActiveRecord::Schema.define(version: 20170618185843) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +21,9 @@ ActiveRecord::Schema.define(version: 20170619210834) do
     t.boolean "verify"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "author_id"
+    t.integer "recipient_id"
+    t.index ["author_id", "recipient_id"], name: "index_conversations_on_author_id_and_recipient_id", unique: true
   end
 
   create_table "ideas", force: :cascade do |t|
