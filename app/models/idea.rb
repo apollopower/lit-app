@@ -1,11 +1,8 @@
 class Idea < ApplicationRecord
-<<<<<<< HEAD
-  has_many :upvotes
-  belongs_to :user
 
- # scope :most_recent, -> { order("created_at desc")}
- # scope :most_popular, -> { order("upvotes_count desc")}
- # scope :category, -> {where("category => category")}}
+	belongs_to :user
+	has_many :conversations
+  has_many :upvotes
 
   #to allow the search to access information in the database, change LIKE to ILIKE when pushed to heroku
   def self.search(search)
@@ -21,9 +18,4 @@ class Idea < ApplicationRecord
     Idea.order("upvotes_count DESC")
   end
 
-
-=======
-	belongs_to :user
-	has_many :conversations
->>>>>>> master
 end

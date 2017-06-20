@@ -1,24 +1,11 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
 
-  resources :ideas do
-  resources :upvotes, only: :create
-  end
-
-resources :favorite_ideas, only: [:create, :destroy]
-
-  root 'ideas#index'
-
-  get 'auth/facebook', as: "login"
-  get 'auth/facebook/callback', to: 'sessions#create'
-  get 'logout'  => 'sessions#destroy', as: "logout"
-
-  get 'upvotesort' => 'ideas#upvotesort'
-=======
   resources :ideas do
     resources :conversations, only: [:index, :show, :new, :create]
+    resources :upvotes, only: [:create]
   end
   resources :conversations, only: [:update]
+  resources :favorite_ideas, only: [:create, :destroy]
 
   root 'ideas#index'
 
@@ -30,7 +17,8 @@ resources :favorite_ideas, only: [:create, :destroy]
 
   get 'userprofile' => 'users#show'
   post 'userprofile' => 'users#update'
->>>>>>> master
+
+  get 'upvotesort' => 'ideas#upvotesort'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

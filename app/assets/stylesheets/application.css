@@ -14,7 +14,6 @@
  *= require_self
  */
 
-<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
 
 html {
@@ -6874,7 +6873,7 @@ legend {
 }
 .modal .close {
   color: #333333;
-=======
+}
 /* Normalize */
 
 body {
@@ -6891,5 +6890,4 @@ body {
 
 .header-content__item {
   display: inline;
->>>>>>> master
 }
