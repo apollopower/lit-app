@@ -1,9 +1,16 @@
 <div class="jumbotron">
   <p>
     <% if current_user %>
+<<<<<<< HEAD
       Welcome, <%=current_user.name%>!<br>
       <!-- <%= image_tag current_user.avatar_url %> -->
+=======
+      Welcome, <%=current_user.first_name%>!<br>
+      <%= image_tag current_user.avatar_url, id: "profile_image"%>
+
+>>>>>>> master
       <br>
+      <%= link_to "Profile", userprofile_path %> |
       <a class="btn btn-lg btn-primary" href="/logout" role="button">Log Out</a>
     <% else %>
       <a class="btn btn-lg btn-primary" href="/auth/facebook" role="button">Log In With Facebook</a>
@@ -13,6 +20,7 @@
 
 <% if current_user %>
   <h1>See Whats LiT</h1>
+<<<<<<< HEAD
 
   <%= link_to "Submit New Idea", new_idea_path %>
 
@@ -36,3 +44,26 @@
 
   <% end %>
   <%= link_to "Upvote Sort", upvotesort_path %>  
+=======
+
+
+  <%= link_to "Submit New Idea", new_idea_path %>
+
+  <%= form_tag(ideas_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Ideas" %>
+      <%= submit_tag "Search", :name => nil %>
+  <% end %>
+
+  <% if @ideas.blank? %>
+    <h4>There are no ideas containing the term <%= params[:search] %>.</h4>
+  <% end %>
+
+  <% @ideas.each do |idea| %>
+  <div style= border-style:solid; color:black>
+    <h3><%= idea.title %></h3>
+    <button> Save Idea </button>
+    <%= link_to "Check this out", idea_path(idea) %>
+    </div>
+  <% end %>
+<% end %>
+>>>>>>> master

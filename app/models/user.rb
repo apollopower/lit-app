@@ -1,12 +1,18 @@
 class User < ApplicationRecord
   has_many :ideas
+<<<<<<< HEAD
   has_many :upvotes
 
   has_many :favorites
   has_many :favorite_ideas, through: :favorites, source: :idea, source_type: 'Idea'
 
 
+=======
+>>>>>>> master
   # Initializes or updates user object when logging in with Facebook
+  has_many :authored_conversations, class_name: 'Conversation', foreign_key: 'author_id'
+  has_many :received_conversations, class_name: 'Conversation', foreign_key: 'recipient_id'
+
   def self.from_omniauth(auth)
     where(fb_id: auth.uid).first_or_create do |user|
       user.oauth_provider = auth.provider
@@ -17,5 +23,9 @@ class User < ApplicationRecord
       user.avatar_url ||= "http://graph.facebook.com/#{auth.uid}/picture?width=500"
       user.save!
     end
+  end
+
+  def first_name
+    self.name.split(' ')[0]
   end
 end

@@ -1,4 +1,5 @@
 class Idea < ApplicationRecord
+<<<<<<< HEAD
   has_many :upvotes
   belongs_to :user
 
@@ -21,4 +22,8 @@ class Idea < ApplicationRecord
   end
 
 
+=======
+	belongs_to :user
+	has_many :conversations
+>>>>>>> master
 end

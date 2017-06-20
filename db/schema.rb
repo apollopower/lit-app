@@ -10,15 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170620035314) do
+=======
+ActiveRecord::Schema.define(version: 20170620193422) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "conversations", force: :cascade do |t|
-    t.boolean "verify"
+    t.boolean "verify", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "author_id"
+    t.integer "recipient_id"
+    t.integer "idea_id"
+    t.index ["author_id", "recipient_id"], name: "index_conversations_on_author_id_and_recipient_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -34,12 +42,16 @@ ActiveRecord::Schema.define(version: 20170620035314) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
     t.text "summary"
     t.text "problem"
     t.text "guidance"
     t.integer "upvotes_count", default: 0
     t.integer "user_id"
     t.integer "favorites_count"
+=======
+    t.integer "user_id"
+>>>>>>> master
   end
 
   create_table "messages", force: :cascade do |t|
@@ -65,6 +77,8 @@ ActiveRecord::Schema.define(version: 20170620035314) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "bio"
+    t.string "skills"
   end
 
   add_foreign_key "favorites", "users"
