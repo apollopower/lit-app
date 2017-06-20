@@ -1,6 +1,10 @@
 <h1><%= @idea.title %></h1>
 <p><%= @idea.description %><p>
 
+<h3>Submitted by <%= @idea.user.first_name if @idea.user %></h3>
+
+<%= image_tag @idea.user.avatar_url if @idea.user %>
+
 <p>Message the Idea owner</p>
 
-<%= button_to 'Message', 'conversations#create' %>
+<%= button_to 'Message', idea_conversations_path %>

@@ -1,0 +1,33 @@
+<h1>Profile </h1>
+
+
+	<%=current_user.name %>
+	<br>
+	<br>
+	<%= image_tag current_user.avatar_url, id: 'profile-pic' %>
+
+	<br>
+	<br>
+
+	<p><%= current_user.bio %></p>
+
+	<h5><%= current_user.skills %></h5>
+
+<%= form_tag '/userprofile' do %>
+
+	Bio: <%= text_area_tag :bio %>
+	<br>
+	<br>
+	Skills: <%= text_area_tag :skills %>
+
+	<br>
+	<br>
+<%= submit_tag "Submit" %>
+<% end %>
+
+<% current_user.received_conversations.each do |convo| %>
+	<% if current_user.convo.verify == false %>
+		<!-- Button to accept request -->
+		<p>Someone sent you a message request!</p>
+	<% end %>
+<% end %>

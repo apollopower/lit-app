@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
 	def show
 		@users = User.all
@@ -18,7 +18,7 @@ class UserController < ApplicationController
   end
 end
 
-private 
+private
 
 def user_params
 	params.permit(:bio, :skills)
