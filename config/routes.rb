@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   resources :ideas do
-    post 'conversations' => 'conversations#create'
+    resources :conversations, only: [:index, :show, :new, :create]
   end
-  # post 'conversations' => 'conversations#create'
+  resources :conversations, only: [:update]
+
   root 'ideas#index'
 
 

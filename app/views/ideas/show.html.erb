@@ -3,8 +3,8 @@
 
 <h3>Submitted by <%= @idea.user.first_name if @idea.user %></h3>
 
-<%= image_tag @idea.user.avatar_url if @idea.user %>
+<%= image_tag @idea.user.avatar_url, id: 'profile-pic' if @idea.user %>
 
-<p>Message the Idea owner</p>
+<p><%= "Message " + @idea.user.first_name + " about " + @idea.title %></p>
 
-<%= button_to 'Message', idea_conversations_path %>
+<%= button_to 'Message', idea_conversations_path(@idea) %>
