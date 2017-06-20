@@ -1,9 +1,8 @@
 <div class="jumbotron">
-  <h1>Welcome to LiT!</h1>
   <p>
     <% if current_user %>
       Welcome, <%=current_user.name%>!<br>
-      <%= image_tag current_user.avatar_url %>
+      <!-- <%= image_tag current_user.avatar_url %> -->
       <br>
       <a class="btn btn-lg btn-primary" href="/logout" role="button">Log Out</a>
     <% else %>
@@ -21,19 +20,19 @@
       <%= text_field_tag :search, params[:search], placeholder: "Search Ideas" %>
       <%= submit_tag "Search", :name => nil %>
   <% end %>
+  <% end %>
 
   <% if @ideas.blank? %>
-    <h4>There are no ideas containing the term <%= params[:search] %>.</h4>
+    <h4> <%= @ideas %>There are no ideas containing the term <%= params[:search] %>.</h4>
   <% end %>
 
   <% @ideas.each do |idea| %>
     <div style="border-style:solid; color:black" class="idea-container">
       <h3><%= idea.title %></h3>
       <p><%= idea.summary %></p>
-      <%= link_to "Vote", idea_upvotes_path(idea), class: "vote" %>
-      <span class= "idea-count"> <%= idea.upvotes.count %>  </span>
-      <button> Save Idea </button>
+      <%= link_to 'Vote', idea_upvotes_path(idea), class: "vote upvote" %>
+      <span class= "idea-count"> <%= idea.upvotes.count %>  </span> |
     </div>
-  <% end %>
 
-<% end %>
+  <% end %>
+  <%= link_to "Upvote Sort", upvotesort_path %>  

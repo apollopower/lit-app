@@ -2,6 +2,10 @@ class User < ApplicationRecord
   has_many :ideas
   has_many :upvotes
 
+  has_many :favorites
+  has_many :favorite_ideas, through: :favorites, source: :idea, source_type: 'Idea'
+
+
   # Initializes or updates user object when logging in with Facebook
   def self.from_omniauth(auth)
     where(fb_id: auth.uid).first_or_create do |user|

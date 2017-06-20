@@ -5,13 +5,22 @@ class UpvotesController < ApplicationController
     @idea = Idea.find(params[:idea_id])
     user_ideas = current_user.upvotes.find_by(idea_id: params[:idea_id])
 
-    unless user_ideas.present?
-      upvote = @idea.upvotes.build
-      upvote.user_id = current_user.id
-      upvote.save
-    else
+    if user_ideas.present?
       user_ideas.destroy
-    end
+    else
+        upvote = @idea.upvotes.build
+        upvote.user_id = current_user.id
+        upvote.save
+      end
+
+
+    # unless user_ideas.present?
+    #   upvote = @idea.upvotes.build
+    #   upvote.user_id = current_user.id
+    #   upvote.save
+    # else
+    #   user_ideas.destroy
+    # end
 
 
     # .find_by(user: current_user)
