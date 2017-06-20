@@ -214,12 +214,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
+
   autoprefixer-rails
   bcrypt (~> 3.1.7)
-  bootstrap-sass (~> 3.2.0)
-=======
->>>>>>> master
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
