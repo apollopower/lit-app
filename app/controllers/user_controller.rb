@@ -21,7 +21,7 @@ end
 private 
 
 def user_params
-	params.permit(:bio, :skills)
+	params.permit(:bio, :skills, :links)
 end
 
 end
