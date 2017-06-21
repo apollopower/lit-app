@@ -1,8 +1,9 @@
 
 <% if current_user %>
+
 <% end %>
 <h1>Submit an Idea</h1>
 
 <%= render 'form' %>
 
-<%= current_user.name %>
+<%= link_to 'Return to Ideas', root_path %>

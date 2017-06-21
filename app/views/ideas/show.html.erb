@@ -1,6 +1,16 @@
-<h1><%= @idea.title %></h1>
+<h1 style="color:green;"> **Alert for idea succcessfully submitted** <h1>
+
+<h3><%= @idea.title %></h3>
+<p><%= @idea.summary %><p>
+<p><%= @idea.problem %><p>
 <p><%= @idea.description %><p>
+<p><%= @idea.guidance %><p>
+<%= link_to "Return to Ideas", ideas_path %>
 
-<p>Message the Idea owner</p>
+<h3>Submitted by <%= @idea.user.first_name if @idea.user %></h3>
 
-<%= button_to 'Message', 'conversations#create' %>
+<%= image_tag @idea.user.avatar_url, id: 'profile-pic' if @idea.user %>
+
+<p><%= "Message " + @idea.user.first_name + " about " + @idea.title %></p>
+
+<%= button_to 'Message', idea_conversations_path(@idea) %>

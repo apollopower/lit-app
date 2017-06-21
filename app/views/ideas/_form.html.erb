@@ -13,16 +13,32 @@
   <% end %>
 
   <p>
-    <%= f.label :title %>
+    Title:
     <%= f.text_field :title %>
   </p>
 
   <p>
-    <%= f.label :description %>
+  Summary: <br>
+  <%= f.text_area :summary %>
+  </p>
+
+  <p>
+    Problem Being Addressed:<br>
+    <%= f.text_area :problem %>
+  </p>
+
+  <p>
+    Description:<br>
     <%= f.text_area :description %>
   </p>
 
   <p>
+  Seeking Guidance In:<br>
+  <%= f.text_area :guidance %>
+  </p>
+
+  <p>
     <%= f.submit %>
+    <button> Save for later </button>
   </p>
 <% end %>

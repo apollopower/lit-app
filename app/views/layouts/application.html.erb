@@ -18,7 +18,7 @@
     <div class="header">
       <ul class="header-content">
         <li class="header-content__item"><%= link_to image_tag('lit.png'), root_path, id: 'logo' %></li>
-        <li class="header-content__item"><%= current_user.name %></li>
+        <li class="header-content__item"><%= current_user.name if current_user %></li>
       </ul>
     </div>
     <%= yield %>

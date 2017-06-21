@@ -7,12 +7,22 @@ class ConversationsController < ApplicationController
 
   end
 
+  def new
+
+  end
+
   def create
-    @conversation = Conversation.new(verify: false)
+    @idea = Idea.find(params[:idea_id])
+    @conversation = Conversation.new(author_id: current_user.id, recipient_id: @idea.user.id, idea_id: @idea.id)
+
     if @conversation.save
       redirect_to root_path
-
     end
+  end
+
+  def update
+    @idea = Idea.find(params[:idea_id])
+    redirect_to root_path if @conversation.update!(verify: true)
   end
 
 end
