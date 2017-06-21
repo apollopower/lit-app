@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :ideas do
-    resources :conversations, only: [:index, :show, :new, :create]
+    resources :conversations, only: [:show, :new, :create]
     resources :upvotes, only: [:create]
   end
   resources :conversations, only: [:update]
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   root 'ideas#index'
 
+  get 'conversations' => 'conversations#index'
 
 
   get 'auth/facebook', as: "login"
