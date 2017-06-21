@@ -11,11 +11,16 @@ class IdeasController < ApplicationController
       #   @ideas = Idea.all.joins(:upvotes).group(:id).order("count(*) desc")
 
      @ideas = Idea.search(params[:search]).order("created_at DESC")
-   else
+    else
     #  @ideas = Idea.all.order("created_at DESC")
     @ideas= Idea.sort_by_date
-   end
-     end
+    end
+  end
+
+  def recentsort
+    
+  end
+
 
   def upvotesort
      @ideas= Idea.sort_by_upvote
