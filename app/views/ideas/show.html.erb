@@ -13,3 +13,12 @@
   <p><%= "Message " + @idea.user.first_name + " about " + @idea.title %></p>
   <%= button_to 'Message', idea_conversations_path(@idea), class: 'btn btn-primary btn-lg'  %>
 <% end %>
+
+<h3>Leave a Comment</h3>
+
+<%= render 'comments/form', comment: @comment %>
+
+<% @comments.each do |comment| %>
+  <p><%= comment.body %></p>
+  <h6>Submitted by <%= comment.user.first_name %></h6>
+<% end %>

@@ -24,6 +24,8 @@ class IdeasController < ApplicationController
 
   def show
     @idea = Idea.find(params[:id])
+    @comment = Comment.new
+    @comments = @idea.comments.order('created_at DESC')
   end
 
   def new

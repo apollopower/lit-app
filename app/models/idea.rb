@@ -3,6 +3,7 @@ class Idea < ApplicationRecord
 	belongs_to :user
 	has_many :conversations
   has_many :upvotes
+	has_many :comments
 
   #to allow the search to access information in the database, change LIKE to ILIKE when pushed to heroku
   def self.search(search)
