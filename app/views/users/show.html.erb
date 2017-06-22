@@ -11,7 +11,6 @@
 
 <%= form_tag editusersprofile_path(@user), method: :put do %>
 
-
 	<h3>A little about me</h3>
 	<%= @user.bio %>
 		<br>
@@ -28,8 +27,34 @@
 	  <%= text_area_tag :skills, @user.skills %>
 	<% end %>
 		<br>
+
+
+	<h3>Social Links</h3>
+		<%= link_to(fa_icon("github"), @user.github)%> <br>
+	<% if @user == current_user %>  
+	  <%= text_field_tag :github, @user.github %>
+	<% end %>
+	<%= submit_tag "Submit" %>
+
+<br>
+		
+
+
 		<br>
+	<%= link_to(fa_icon("linkedin-square"), @user.linkedin)%> <br>
+	<% if @user == current_user %>  
+	  <%= text_field_tag :linkedin, @user.linkedin %>
+	<% end %>
 <%= submit_tag "Submit" %>
+<br>
+<br>
+		<%= link_to(fa_icon("twitter"), @user.twitter)%> <br>
+	<% if @user == current_user %>  
+	  <%= text_field_tag :twitter, @user.twitter %>
+	<% end %>
+<%= submit_tag "Submit" %>
+
+
 
 
 <%end%>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622190839) do
+ActiveRecord::Schema.define(version: 20170622224313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,12 +38,11 @@ ActiveRecord::Schema.define(version: 20170622190839) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "avatar"
-    t.integer "user_id"
     t.text "summary"
     t.text "problem"
     t.text "guidance"
     t.integer "upvotes_count", default: 0
+    t.integer "user_id"
     t.integer "favorites_count"
     t.string "image"
   end
@@ -73,7 +72,9 @@ ActiveRecord::Schema.define(version: 20170622190839) do
     t.datetime "updated_at", null: false
     t.string "bio"
     t.string "skills"
-    t.string "links"
+    t.string "github"
+    t.string "linkedin"
+    t.string "twitter"
   end
 
   add_foreign_key "favorites", "users"
