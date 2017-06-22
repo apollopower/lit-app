@@ -17,8 +17,9 @@ Rails.application.routes.draw do
   get 'auth/facebook/callback', to: 'sessions#create'
   get 'logout'   => 'sessions#destroy', as: "logout"
 
-  get 'userprofile' => 'users#show'
-  post 'userprofile' => 'users#update'
+  get 'usersprofile/:id' => 'users#show', as: 'usersprofile'
+  put 'editusersprofile/:id' => 'users#update', as: 'editusersprofile'
+  
 
   get 'upvotesort' => 'ideas#upvotesort'
 

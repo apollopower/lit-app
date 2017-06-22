@@ -3,7 +3,11 @@
 <p><%= @idea.problem %><p>
 <p><%= @idea.description %><p>
 <p><%= @idea.guidance %><p>
+<%= image_tag(@idea.image_url(:thumb).to_s) %>
 <%= link_to "Return to Ideas", ideas_path %>
+
+ 
+<%= link_to "View This User's Profile", usersprofile_path(id: @idea.user.id) %>
 
 <h3>Submitted by <%= @idea.user.first_name if @idea.user %></h3>
 

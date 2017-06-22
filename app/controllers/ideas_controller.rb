@@ -40,6 +40,7 @@ class IdeasController < ApplicationController
     # @idea = Idea.new(params[:user_id])
 
     @idea = current_user.ideas.build(idea_params)
+
     @idea.user_id = current_user.id
 
     if @idea.save
@@ -69,7 +70,7 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:title,:summary, :description, :problem, :guidance)
+    params.require(:idea).permit(:title, :summary, :description, :problem, :guidance, :image)
   end
 
 end
