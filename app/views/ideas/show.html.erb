@@ -5,6 +5,7 @@
 <p><%= @idea.problem %><p>
 <p><%= @idea.description %><p>
 <p><%= @idea.guidance %><p>
+<%= image_tag(@snippet.image_url(:thumb).to_s) %>
 <%= link_to "Return to Ideas", ideas_path %>
 
  
