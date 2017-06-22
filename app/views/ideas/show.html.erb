@@ -7,6 +7,9 @@
 <p><%= @idea.guidance %><p>
 <%= link_to "Return to Ideas", ideas_path %>
 
+ 
+<%= link_to "View This User's Profile", usersprofile_path(id: @idea.user.id) %>
+
 <h3>Submitted by <%= @idea.user.first_name if @idea.user %></h3>
 
 <%= image_tag @idea.user.avatar_url, id: 'profile-pic' if @idea.user %>
