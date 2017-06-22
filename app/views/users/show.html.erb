@@ -66,14 +66,16 @@
 			<!-- Button to accept request -->
 			<%= image_tag convo.author.avatar_url, id: 'sender-pic' %>
 			<p><%= convo.author.first_name %> wants to talk to you about <%= convo.idea.title %>!</p>
-			<%= button_to "Talk to #{convo.author.first_name}!", idea_conversation_path(convo,convo) ,method: :get %>
+			<%= button_to "Talk to #{convo.author.first_name}!", conversation_path(convo), method: :patch, class: 'btn btn-primary btn-lg' %>
 		<% end %>
 	<% end %>
 </div>
 
 <div class="profile-conversations">
 	<% current_user.authored_conversations.each do |convo| %>
-		<p><%= "#{convo.idea.user.first_name} wants to talk!" %></p>
-		<%= button_to "Talk to #{convo.author.first_name}!", idea_conversation_path(convo,convo) ,method: :get %>
+		<% if convo.verify == true %>
+			<p><%= "#{convo.idea.user.first_name} wants to talk!" %></p>
+			<%= button_to "Talk to #{convo.recipient.first_name}!", idea_conversation_path(convo,convo), method: :get, class: 'btn btn-primary btn-lg' %>
+		<% end %>
 	<% end %>
 </div>

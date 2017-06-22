@@ -15,6 +15,14 @@ ActiveRecord::Schema.define(version: 20170622224313) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "idea_id"
+  end
+
   create_table "conversations", force: :cascade do |t|
     t.boolean "verify", default: false
     t.datetime "created_at", null: false

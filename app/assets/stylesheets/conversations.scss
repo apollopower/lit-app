@@ -2,8 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#private {
+#messages {
   height: 300px;
   overflow: scroll;
   border: 1px solid #ddd;
+}
+
+#conversation-pic {
+  max-width: 8em;
+  border-radius: 50%;
 }

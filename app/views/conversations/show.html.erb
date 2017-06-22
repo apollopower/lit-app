@@ -1,8 +1,14 @@
-<h1>Brainstorm!</h1>
+<% if current_user == @conversation.author%>
+  <%= image_tag @conversation.recipient.avatar_url, id: 'conversation-pic' %>
+  <h2><%= "Brainstorming with " + @conversation.recipient.first_name %></h2>
+<% else %>
+  <%= image_tag @conversation.author.avatar_url, id: 'conversation-pic' %>
+  <h2><%= "Brainstorming with " + @conversation.author.first_name %></h2>
+<% end %>
 
 <div class="row">
  <div class="col-md-8">
    <div id="messages"></div>
-   <input id="chat-input" class="form-control" type="text" placeholder="say anything" autofocus/>
+   <input id="chat-input" class="form-control" type="text" placeholder="Talk about <%= @conversation.idea.title %>" autofocus/>
  </div>
 </div>

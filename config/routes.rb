@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
 
   resources :ideas do
-    resources :conversations, only: [:index, :show, :new, :create]
+    resources :conversations, only: [:show, :new, :create]
     resources :upvotes, only: [:create]
+    resources :comments, only: [:create]
   end
   resources :conversations, only: [:update]
   resources :favorite_ideas, only: [:create, :destroy]
 
   root 'ideas#index'
 
+  get 'conversations' => 'conversations#index'
 
 
   get 'auth/facebook', as: "login"

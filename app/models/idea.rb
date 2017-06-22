@@ -3,6 +3,7 @@ class Idea < ApplicationRecord
 	belongs_to :user
 	has_many :conversations
   has_many :upvotes
+	has_many :comments
 
   mount_uploader :image, ImageUploader
 
