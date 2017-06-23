@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
 
   get 'upvotesort' => 'ideas#upvotesort'
+  get 'oldestfirst' => 'ideas#sort_by_oldest_first'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
