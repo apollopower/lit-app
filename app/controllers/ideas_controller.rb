@@ -17,8 +17,13 @@ class IdeasController < ApplicationController
    end
      end
 
+  def sort_by_oldest_first
+    @ideas= Idea.sort_by_date("ASC")
+    render :template => "ideas/index"
+  end
+
   def upvotesort
-     @ideas= Idea.sort_by_upvote
+     @ideas = Idea.sort_by_upvote
      render :template => "ideas/index"
   end
 
@@ -37,7 +42,6 @@ class IdeasController < ApplicationController
   end
 
   def create
-    # @idea = Idea.new(params[:user_id])
 
     @idea = current_user.ideas.build(idea_params)
 
@@ -70,7 +74,7 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:title, :summary, :description, :problem, :guidance, :image)
+    params.require(:idea).permit(:title,:summary, :description, :problem, :guidance, :image, :category)
   end
 
 end

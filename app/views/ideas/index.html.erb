@@ -13,6 +13,7 @@
   </p>
 </div>
 
+
 <% if current_user %>
   <h1>See Whats LiT</h1>
 
@@ -22,7 +23,27 @@
       <%= text_field_tag :search, params[:search], placeholder: "Search Ideas" %>
       <%= submit_tag "Search", :name => nil %>
   <% end %>
-  <% end %>
+
+
+
+
+
+      <button onclick="myFunction()" class="dropbtn">Sort</button>
+        <div>
+      <!-- mydropdown what is being detected to hide/show content -->
+          <ul id="myDropdown" class="dropdown-content">
+            <a><%= link_to "Oldest To Newest", oldestfirst_path %></a>
+            <a><%= link_to "Upvote Sort", upvotesort_path %></a>
+            <a> Category </a>
+            <ul>
+              <li> Arts </li>
+              <li> Business </li>
+            </ul>
+          </ul>
+        </div>
+
+
+
 
   <% if @ideas.blank? %>
     <h4> <%= @ideas %>There are no ideas containing the term <%= params[:search] %>.</h4>
@@ -33,9 +54,10 @@
       <h3><%= idea.title %></h3>
       <p><%= idea.summary %></p>
       <%= link_to "Check this out", idea_path(idea) %>
-      <%= link_to 'Vote', idea_upvotes_path(idea), class: "vote upvote" %>
+      <% user_ideas = current_user.upvotes.where(idea_id: idea.id) %>
+      <%= link_to 'Vote', idea_upvotes_path(idea), class: "#{user_ideas.any? ? 'upvote' : 'vote'}" %>
       <span class= "idea-count"> <%= idea.upvotes.count %>  </span> |
     </div>
 
   <% end %>
-  <%= link_to "Upvote Sort", upvotesort_path %>
+<% end %>

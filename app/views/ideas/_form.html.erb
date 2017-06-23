@@ -43,7 +43,17 @@
     </div>
 
   <p>
+  Category:
+    <%= f.select :category, ['Arts','Business', 'Education',  'Finance', 'Food & Drink', 'Gaming/ Entertainment',
+      'Health/Wellness', 'Legal', 'Life Science', 'Medical', 'Music', 'Navigation','News','Photo & Video',
+      'Real Estate','Robotics','Security','Shopping','Social Media','Technology', 'Transportation','Travel',
+      'Utilities', 'Other']%> </p>
+
+
+  <p>
     <%= f.submit %>
     <button> Save for later </button>
   </p>
+
+
 <% end %>
