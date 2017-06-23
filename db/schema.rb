@@ -15,6 +15,14 @@ ActiveRecord::Schema.define(version: 20170622193959) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "idea_id"
+  end
+
   create_table "conversations", force: :cascade do |t|
     t.boolean "verify", default: false
     t.datetime "created_at", null: false
@@ -45,6 +53,7 @@ ActiveRecord::Schema.define(version: 20170622193959) do
     t.integer "user_id"
     t.integer "favorites_count"
     t.string "category"
+    t.string "image"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -72,6 +81,9 @@ ActiveRecord::Schema.define(version: 20170622193959) do
     t.datetime "updated_at", null: false
     t.string "bio"
     t.string "skills"
+    t.string "github"
+    t.string "linkedin"
+    t.string "twitter"
   end
 
   add_foreign_key "favorites", "users"

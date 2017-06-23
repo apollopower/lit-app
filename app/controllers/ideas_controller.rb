@@ -29,6 +29,8 @@ class IdeasController < ApplicationController
 
   def show
     @idea = Idea.find(params[:id])
+    @comment = Comment.new
+    @comments = @idea.comments.order('created_at DESC')
   end
 
   def new
@@ -40,7 +42,9 @@ class IdeasController < ApplicationController
   end
 
   def create
+
     @idea = current_user.ideas.build(idea_params)
+
     @idea.user_id = current_user.id
 
     if @idea.save
@@ -70,7 +74,7 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:title,:summary, :description, :problem, :guidance, :category)
+    params.require(:idea).permit(:title,:summary, :description, :problem, :guidance, :image, :category)
   end
 
 end

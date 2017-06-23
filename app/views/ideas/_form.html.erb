@@ -37,6 +37,11 @@
   <%= f.text_area :guidance %>
   </p>
 
+  <div class="field">
+    add an image....
+    <%= f.file_field :image %>
+    </div>
+
   <p>
   Category:
     <%= f.select :category, ['Arts','Business', 'Education',  'Finance', 'Food & Drink', 'Gaming/ Entertainment',

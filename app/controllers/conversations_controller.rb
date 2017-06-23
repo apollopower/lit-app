@@ -4,7 +4,7 @@ class ConversationsController < ApplicationController
   end
 
   def show
-
+    @conversation = Conversation.find(params[:id])
   end
 
   def new
@@ -21,8 +21,13 @@ class ConversationsController < ApplicationController
   end
 
   def update
-    @idea = Idea.find(params[:idea_id])
-    redirect_to root_path if @conversation.update!(verify: true)
+    @conversation = Conversation.find(params[:id])
+
+    if @conversation.update!(verify: true)
+      redirect_to idea_conversation_path(@conversation,@conversation)
+    else
+      render root_path
+    end
   end
 
 end

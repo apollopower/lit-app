@@ -1,22 +1,25 @@
 Rails.application.routes.draw do
 
   resources :ideas do
-    resources :conversations, only: [:index, :show, :new, :create]
+    resources :conversations, only: [:show, :new, :create]
     resources :upvotes, only: [:create]
+    resources :comments, only: [:create]
   end
   resources :conversations, only: [:update]
   resources :favorite_ideas, only: [:create, :destroy]
 
   root 'ideas#index'
 
+  get 'conversations' => 'conversations#index'
 
 
   get 'auth/facebook', as: "login"
   get 'auth/facebook/callback', to: 'sessions#create'
   get 'logout'   => 'sessions#destroy', as: "logout"
 
-  get 'userprofile' => 'users#show'
-  post 'userprofile' => 'users#update'
+  get 'usersprofile/:id' => 'users#show', as: 'usersprofile'
+  put 'editusersprofile/:id' => 'users#update', as: 'editusersprofile'
+  
 
   get 'upvotesort' => 'ideas#upvotesort'
   get 'oldestfirst' => 'ideas#sort_by_oldest_first'
