@@ -4,6 +4,9 @@ class User < ApplicationRecord
   has_many :authored_conversations, class_name: 'Conversation', foreign_key: 'author_id'
   has_many :received_conversations, class_name: 'Conversation', foreign_key: 'recipient_id'
   has_many :upvotes
+
+  has_many :comments
+
   has_many :favorites
   has_many :favorite_ideas, through: :favorites, source: :idea, source_type: 'Idea'
 
