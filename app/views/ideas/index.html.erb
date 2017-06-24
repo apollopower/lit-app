@@ -1,55 +1,53 @@
-<div class="jumbotron">
-  <p>
-    <% if current_user %>
-      Welcome, <%=current_user.first_name%>!<br>
-      <%= image_tag current_user.avatar_url, id: "profile_image"%>
+<h1 id=hometitle>See Whats LiT</h1>
 
-      <br>
-      <%= link_to "Profile", usersprofile_path(id: current_user.id) %> |
-      <a class="btn btn-lg btn-primary" href="/logout" role="button">Log Out</a>
-    <% else %>
-      <a class="btn btn-lg btn-primary" href="/auth/facebook" role="button">Log In With Facebook</a>
-    <% end %>
-  </p>
-</div>
+<% unless current_user %>
+  <h2>Welcome to</h2>
+  <% image_tag('lit.png') %>
+<% end %>
 
 
 <% if current_user %>
-  <h1>See Whats LiT</h1>
 
-  <%= link_to "Submit New Idea", new_idea_path %>
+<div class= "ideamenu">
 
-  <%= form_tag(ideas_path, :method => "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search Ideas" %>
-      <%= submit_tag "Search", :name => nil %>
-  <% end %>
-
-
-      <button onclick="myFunction()" class="dropbtn">Sort</button>
-        <div>
+  <div class= "new"> <button onclick="myFunction()" class="dropbtn">Sort</button>
       <!-- mydropdown what is being detected to hide/show content -->
           <ul id="myDropdown" class="dropdown-content">
-            <a><%= link_to "Oldest To Newest", oldestfirst_path %></a>
-            <a><%= link_to "Upvote Sort", upvotesort_path %></a>
+            <%= link_to "Oldest To Newest", oldestfirst_path %>
+            <%= link_to "Most Popular", upvotesort_path %>
             <a> Category </a>
           </ul>
-        </div>
+      </div>
+  <div class= "new dropbtn"><%= link_to "Submit New Idea", new_idea_path %> </div>
+
+  </div>
+
+    <div class= "new"> <%= form_tag(ideas_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Ideas" %>
+      <%= submit_tag 'Search', :name => nil %>
+  <% end %>
+  </div>
+
+
 
 
   <% if @ideas.blank? %>
     <h4> <%= @ideas %>There are no ideas containing the term <%= params[:search] %>.</h4>
   <% end %>
 
-  <% @ideas.each do |idea| %>
-    <div style="border-style:solid; color:black" class="idea-container">
-      <h3><%= idea.title %></h3>
-      <p><%= idea.summary %></p> 
-      <%= image_tag(idea.image_url(:thumb).to_s) %>
-      <%= link_to "Check this out", idea_path(idea) %>
-      <% user_ideas = current_user.upvotes.where(idea_id: idea.id) %>
-      <%= link_to 'Vote', idea_upvotes_path(idea), class: "#{user_ideas.any? ? 'upvote' : 'vote'}" %>
-      <span class= "idea-count"> <%= idea.upvotes.count %>  </span> 
-    </div>
 
+  <% @ideas.each do |idea| %>
+    <div class="idea">
+      <h2><%= idea.title %></h2>
+      <%= (image_tag(idea.image_url.to_s)) %><br><br>
+      <p><%= idea.summary %></p>
+      <p><%= image_tag idea.user.avatar_url, class: 'submitter-pic' %><%= " Idea submitted by " + idea.user.first_name %></p>
+      <%= button_to "View Idea", idea_path(idea), method: :get %>
+      <%# user_ideas = current_user.upvotes.where(idea_id: idea.id) %>
+      <% user_ideas = idea.upvotes.where(idea_id: idea.id, user_id: current_user.id) %>
+      <h2 class= "voting"><%= link_to (fa_icon("lightbulb-o")), idea_upvotes_path(idea), class: "#{user_ideas.any? ? 'upvote' : 'vote'}" %> </h2>
+      <h3 class= "idea-count voting"> <%= idea.upvotes.count %></h3>
+    </div>
   <% end %>
+
 <% end %>
