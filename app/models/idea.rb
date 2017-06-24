@@ -1,5 +1,6 @@
 class Idea < ApplicationRecord
-
+	validates :title, presence: true
+	validates :summary, presence: true 
 	belongs_to :user
 	has_many :conversations
   has_many :upvotes

@@ -49,7 +49,7 @@
       <%= link_to "Check this out", idea_path(idea) %>
       <% user_ideas = current_user.upvotes.where(idea_id: idea.id) %>
       <%= link_to 'Vote', idea_upvotes_path(idea), class: "#{user_ideas.any? ? 'upvote' : 'vote'}" %>
-      <span class= "idea-count"> <%= idea.upvotes.count %>  </span> |
+      <span class= "idea-count"> <%= idea.upvotes.count %>  </span> 
     </div>
 
   <% end %>
