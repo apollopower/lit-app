@@ -25,9 +25,6 @@
   <% end %>
 
 
-
-
-
       <button onclick="myFunction()" class="dropbtn">Sort</button>
         <div>
       <!-- mydropdown what is being detected to hide/show content -->
@@ -35,14 +32,8 @@
             <a><%= link_to "Oldest To Newest", oldestfirst_path %></a>
             <a><%= link_to "Upvote Sort", upvotesort_path %></a>
             <a> Category </a>
-            <ul>
-              <li> Arts </li>
-              <li> Business </li>
-            </ul>
           </ul>
         </div>
-
-
 
 
   <% if @ideas.blank? %>
@@ -52,11 +43,12 @@
   <% @ideas.each do |idea| %>
     <div style="border-style:solid; color:black" class="idea-container">
       <h3><%= idea.title %></h3>
-      <p><%= idea.summary %></p>
+      <p><%= idea.summary %></p> 
+      <%= image_tag(idea.image_url(:thumb).to_s) %>
       <%= link_to "Check this out", idea_path(idea) %>
       <% user_ideas = current_user.upvotes.where(idea_id: idea.id) %>
       <%= link_to 'Vote', idea_upvotes_path(idea), class: "#{user_ideas.any? ? 'upvote' : 'vote'}" %>
-      <span class= "idea-count"> <%= idea.upvotes.count %>  </span> |
+      <span class= "idea-count"> <%= idea.upvotes.count %>  </span> 
     </div>
 
   <% end %>

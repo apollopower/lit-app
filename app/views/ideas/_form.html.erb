@@ -1,4 +1,4 @@
-<%= form_for @idea do |f| %>
+<%= form_with(model: @idea,remote: true, class:"create_idea")do |f| %>
   <% if @idea.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -51,7 +51,6 @@
 
 
   <p>
-    <%= f.submit %>
     <button> Save for later </button>
   </p>
 

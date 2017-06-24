@@ -48,7 +48,7 @@ class IdeasController < ApplicationController
     @idea.user_id = current_user.id
 
     if @idea.save
-      redirect_to @idea
+      redirect_to ideas_path
     else
       render 'new'
     end
