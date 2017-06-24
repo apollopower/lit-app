@@ -36,8 +36,6 @@
         </div>
 
 
-
-
   <% if @ideas.blank? %>
     <h4> <%= @ideas %>There are no ideas containing the term <%= params[:search] %>.</h4>
   <% end %>
@@ -45,7 +43,8 @@
   <% @ideas.each do |idea| %>
     <div style="border-style:solid; color:black" class="idea-container">
       <h3><%= idea.title %></h3>
-      <p><%= idea.summary %></p>
+      <p><%= idea.summary %></p> 
+      <%= image_tag(idea.image_url(:thumb).to_s) %>
       <%= link_to "Check this out", idea_path(idea) %>
       <% user_ideas = current_user.upvotes.where(idea_id: idea.id) %>
       <%= link_to 'Vote', idea_upvotes_path(idea), class: "#{user_ideas.any? ? 'upvote' : 'vote'}" %>
