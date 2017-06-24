@@ -18,3 +18,10 @@ window.onclick = function(event) {
     }
   }
 }
+
+$(document).on ('turbolinks:load', function(){
+  $('.save').click (function(evt){
+    evt.preventDefault();
+    $('.create_idea').submit();
+    });
+});

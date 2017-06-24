@@ -7,16 +7,38 @@
 <%= image_tag(@idea.image_url(:thumb).to_s) %>
 <%= link_to "Return to Ideas", ideas_path %>
 
- 
+
 <%= link_to "View This User's Profile", usersprofile_path(id: @idea.user.id) %>
 
 <h3>Submitted by <%= @idea.user.first_name if @idea.user %></h3>
 
 <%= image_tag @idea.user.avatar_url, id: 'profile-pic' if @idea.user %>
+<br>
 
 <% unless current_user == @idea.user %>
-  <p><%= "Message " + @idea.user.first_name + " about " + @idea.title %></p>
-  <%= button_to 'Message', idea_conversations_path(@idea), class: 'btn btn-primary btn-lg'  %>
+
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    <%= "Message " + @idea.user.first_name + " about " + @idea.title %>
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Message Request Sent to <%= @idea.user.first_name %>!</h4>
+        </div>
+        <!-- <div class="modal-body">
+          ...
+        </div> -->
+        <div class="modal-footer">
+          <%= button_to 'Return', idea_conversations_path(@idea), class: 'btn btn-primary btn-lg'  %>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
 
 <h3>Leave a Comment</h3>
