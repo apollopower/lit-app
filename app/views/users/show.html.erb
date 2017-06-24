@@ -36,7 +36,7 @@
 		</ul>
 	</div>
 
-	<h2> <%= @user.first_name %>'s Ideas </h2>
+	<h3> <%= @user.first_name %>'s Ideas </h3>
 	<% @user.ideas.each do |i| %>
 	<%= link_to "#{i.title}",idea_path(i)%> <br>
 	<%= image_tag (i.image_url(:thumb).to_s) %>

@@ -43,9 +43,21 @@
 
 <h3>Leave a Comment</h3>
 
+<div> <button onclick="myFunction()" class="dropbtn">Sort</button>
+    <!-- mydropdown what is being detected to hide/show content -->
+        <ul id="myDropdown" class="dropdown-content">
+          <%= link_to "Problem Being Addressed", oldestfirst_path %>
+          <%= link_to "Ways to Enhance Idea", upvotesort_path %>
+          <%= link_to "Implementing Idea", upvotesort_path %>
+          <%= link_to "Other", upvotesort_path %>
+        </ul>
+    </div>
+
+
 <%= render 'comments/form', comment: @comment %>
 
 <% @comments.each do |comment| %>
   <p><%= comment.body %></p>
+  <p><%= comment.topic %></p>
   <h6>Submitted by <%= comment.user.first_name %></h6>
 <% end %>
