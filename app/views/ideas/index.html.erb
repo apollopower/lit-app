@@ -10,7 +10,7 @@
 
 <div class= "ideamenu">
 
-  <div class= "new"> <button onclick="myFunction()" class="dropbtn">Sort</button>
+  <div> <button onclick="myFunction()" class="dropbtn">Sort</button>
       <!-- mydropdown what is being detected to hide/show content -->
           <ul id="myDropdown" class="dropdown-content">
             <%= link_to "Oldest To Newest", oldestfirst_path %>
@@ -18,16 +18,18 @@
             <a> Category </a>
           </ul>
       </div>
-  <div class= "new dropbtn"><%= link_to "Submit New Idea", new_idea_path %> </div>
 
-  </div>
 
-    <div class= "new"> <%= form_tag(ideas_path, :method => "get", id: "search-form") do %>
+  <div class="dropbtn"><%= link_to "Submit New Idea", new_idea_path, id: 'submit-new-idea' %> </div>
+
+
+    <div id= "searchbar"> <%= form_tag(ideas_path, :method => "get", id: "search-form") do %>
       <%= text_field_tag :search, params[:search], placeholder: "Search Ideas" %>
-      <%= submit_tag 'Search', :name => nil %>
   <% end %>
-  </div>
 
+
+  </div>
+  </div>
 
 
 

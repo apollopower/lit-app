@@ -28,13 +28,13 @@ body {
 }
 
 #logo img {
-  max-width: 4em;
+  max-width: 5em;
+  /*padding-bottom: 1em;*/
 }
 
-.header{
+.header {
   display: inline;
 }
-
 
 
 .logout{
