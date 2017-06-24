@@ -1,15 +1,36 @@
 // Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-#profile-pic {
-	max-width: 4em;
-	border-radius: 50%;
+.donuts {
+		text-align: center;
 }
 
-#ideaprofile-pic {
-	max-width: 20em;
+ul {
+	display: inline;
+	li {
+		list-style: none;
+		display: inline;
+		font-size: 4em;
+		padding-left: 0.5em;
+		padding-right: 0.5em;
+	}
+}
+
+.social-links {
+	padding-top: 1em;
+	padding-right: 2em;
+}
+
+.fa-github {
+	color: black
+}
+
+
+#profile-pic {
+	max-width: 10em;
 	border-radius: 50%;
+	display: block;
+	margin: auto;
 }
 
 #sender-pic {
