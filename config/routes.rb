@@ -7,11 +7,7 @@ Rails.application.routes.draw do
 
 
     # Sorting Comments Routes
-    get 'commentproblemaddressed' => 'comments#sort_by_problem_addressed'
-    get 'commentenhancement' => 'comments#sort_by_enhancement'
-    get 'commentimplementation' => 'comments#sort_by_implementation'
-    get 'commentdisagree' => 'comments#sort_by_disagree'
-    get 'commentother' => 'comments#sort_by_other'
+    get '/sortedcomments' => 'comments#sorting_comments'
   end
   resources :conversations, only: [:update]
   resources :favorite_ideas, only: [:create, :destroy]

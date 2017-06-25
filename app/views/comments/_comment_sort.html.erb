@@ -1,0 +1,12 @@
+
+<% if @comments.size < 1 %>
+  <h1>No comments for this topic</h1>
+<% else %>
+  <% @comments.each do |comment| %>
+    <div class="comment">
+      <p><%= comment.body %></p>
+      <p><%= comment.topic %></p>
+      <h6>Submitted by <%= comment.user.first_name %></h6>
+    </div>
+  <% end %>
+<% end %>

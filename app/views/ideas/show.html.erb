@@ -64,23 +64,21 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
            <ul class="nav navbar-nav">
-             <li class="active"><%= link_to "Problem Being Addressed", nil %></li>
-             <li><%= link_to "Ways to Enhance Idea", nil %></li>
-             <li><%= link_to "Implementing Idea", nil %></li>
-             <li><%= link_to "Disagree With Aspect of Idea", nil %></li>
-             <li><%= link_to "Other", nil %></li>
+             <li class="active"><%= link_to "All", idea_sortedcomments_path(@idea, sort: 'all'), class: "sort" %></li>
+             <li ><%= link_to "Problem Being Addressed", idea_sortedcomments_path(@idea, sort: 'problem_addressed'), class: "sort" %></li>
+             <li ><%= link_to "Ways to Enhance Idea", idea_sortedcomments_path(@idea, sort: 'enhance_idea'), class: "sort"%></li>
+             <li ><%= link_to "Implementing Idea", idea_sortedcomments_path(@idea, sort: 'implementation'), class: "sort"%></li>
+             <li><%= link_to "Disagree With Aspect of Idea", idea_sortedcomments_path(@idea, sort:'disagree'), class: "sort" %></li>
+             <li><%= link_to "Other", idea_sortedcomments_path(@idea, sort: 'other'), class: "sort" %></li>
 
                </ul>
              </li>
            </ul>
-
          </div><!-- /.navbar-collapse -->
        </div><!-- /.container-fluid -->
 
       </nav>
-      <% @comments.each do |comment| %>
-        <p><%= comment.body %></p>
-        <p><%= comment.topic %></p>
-        <h6>Submitted by <%= comment.user.first_name %></h6>
-      <% end %>
+<div class= "comment-wrapper">
+        <%=render "comments/comment_sort"%>
+</div>
   </div>

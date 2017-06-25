@@ -52,9 +52,30 @@ class CommentsController < ApplicationController
     end
   end
 
+  def sorting_comments
+    @idea = Idea.find(params[:idea_id])
+    if params['sort']== 'problem_addressed'
+      @comments = @idea.comments.problem_addressed
+    elsif params['sort']== 'enhance_idea'
+      @comments = @idea.comments.enhance_idea
+    elsif params[:sort]== 'implementation'
+      @comments = @idea.comments.implementing_idea
+    elsif params[:sort]=='all'
+      @comments = @idea.comments.order('created_at DESC')
+    elsif params[:sort]== 'disagree'
+      @comments = @idea.comments.disagree
+    else params[:sort]== 'other'
+      @comments = @idea.comments.other
+    end
+
+    respond_to do |format|
+      format.html{ render partial: "comment_sort" }
+    end
+  end
+
   def sort_by_problem_addressed
     @idea = Idea.find(params[:idea_id])
-    @comments= Comment.problem_addressed
+    @comments = Comment.problem_addressed
     render template: "ideas/#{@idea.id}"
   end
 
