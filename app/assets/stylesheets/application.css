@@ -23,14 +23,21 @@ body {
   font-family: helvetica;
 }
 
+.ideasection {
+  text-align: center;
+}
+
 #logo img {
-  max-width: 4em;
+  max-width: 5em;
+  /*padding-bottom: 1em;*/
 }
 
-.header-content {
-  list-style: none;
-}
-
-.header-content__item {
+.header {
   display: inline;
+}
+
+
+.logout{
+  position: absolute;
+  right: 0;
 }

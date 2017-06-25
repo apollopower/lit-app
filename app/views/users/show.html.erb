@@ -1,106 +1,89 @@
-<h1>Profile </h1>
+<div class="donuts">
 
+	<%=  image_tag @user.avatar_url, id: 'profile-pic' %>
 
-	<%=@user.name %>
-		<br>
-		<br>
-	<%= image_tag @user.avatar_url, id: 'profile-pic' %>
+		<h1><%=@user.name %></h1>
+			<br>
+			<br>
 
-		<br>
-		<br>
+	<%= form_tag editusersprofile_path(@user), method: :put do %>
 
-<%= form_tag editusersprofile_path(@user), method: :put do %>
-
-	<h3>A little about me</h3>
-	<%= @user.bio %>
-		<br>
-		<br>
-	<% if @user == current_user %>
-	  <%= text_area_tag :bio, @user.bio %>
-	<% end %>
-
-	<h3>Skills and Strengths</h3>
-	<%= @user.skills %>
-		<br>
-		<br>
-	<% if @user == current_user %>
-	  <%= text_area_tag :skills, @user.skills %>
-	<% end %>
-		<br>
-
-
-	<h3>Social Links</h3>
-		<%= link_to(fa_icon("github"), @user.github)%> <br>
-	<% if @user == current_user %>
-	  <%= text_field_tag :github, @user.github %>
-	<% end %>
-	<%= submit_tag "Submit" %>
-
-<br>
-
-
-
-		<br>
-	<%= link_to(fa_icon("linkedin-square"), @user.linkedin)%> <br>
-	<% if @user == current_user %>
-	  <%= text_field_tag :linkedin, @user.linkedin %>
-	<% end %>
-<%= submit_tag "Submit" %>
-<br>
-<br>
-		<%= link_to(fa_icon("twitter"), @user.twitter)%> <br>
-	<% if @user == current_user %>
-	  <%= text_field_tag :twitter, @user.twitter %>
-	<% end %>
-<%= submit_tag "Submit" %>
-<%end%>
-
-<h3> <%= @user.first_name %>'s Ideas </h3>
-<% @user.ideas.each do |i| %>
-<%= link_to "#{i.title}",idea_path(i)%> <br>
-<%= image_tag (i.image_url(:thumb).to_s) %>
-<% end %>
-
-
-
-
-<div class="profile-requests">
-	<% current_user.received_conversations.each do |convo| %>
-		<% if convo.verify == false %>
-			<!-- Button to accept request -->
-			<%= image_tag convo.author.avatar_url, id: 'sender-pic' %>
-
-			<!-- Button for Modal  -->
-			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-		    Accept <%= convo.author.first_name %>'s Request
-		  </button>
-
-		  <!-- Modal -->
-		  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		    <div class="modal-dialog" role="document">
-		      <div class="modal-content">
-		        <div class="modal-header">
-		          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		          	<h1>Nice! Go and chat with <%= convo.author.first_name %>!</h1>
-		        </div>
-		        <!-- <div class="modal-body">
-		          ...
-		        </div> -->
-		        <div class="modal-footer">
-		          <%= button_to "Talk to #{convo.author.first_name}!", conversation_path(convo), method: :patch, class: 'btn btn-primary btn-lg' %>
-		        </div>
-		      </div>
-		    </div>
-		  </div>
+		<h3>A little about me</h3>
+		<%= @user.bio %>
+			<br>
+			<br>
+		<% if @user == current_user %>
+			<%= text_area_tag :bio, @user.bio %>
 		<% end %>
-	<% end %>
-</div>
 
-<div class="profile-conversations">
-	<% current_user.authored_conversations.each do |convo| %>
-		<% if convo.verify == true %>
-			<p><%= "#{convo.idea.user.first_name} wants to talk!" %></p>
-			<%= button_to "Talk to #{convo.recipient.first_name}!", idea_conversation_path(convo,convo), method: :get, class: 'btn btn-primary btn-lg' %>
+		<h3>Skills and Strengths</h3>
+		<%= @user.skills %>
+			<br>
+			<br>
+		<% if @user == current_user %>
+			<%= text_area_tag :skills, @user.skills %>
 		<% end %>
+			<br>
+
+
+
+	<%end%>
+	<div class="social-links">
+		<ul>
+			<li><%= link_to(fa_icon("github"), @user.github)%></li>
+			<li><%= link_to(fa_icon("linkedin-square"), @user.linkedin)%></li>
+			<li><%= link_to(fa_icon("twitter"), @user.twitter)%></li>
+		</ul>
+	</div>
+
+	<h3> <%= @user.first_name %>'s Ideas </h3>
+	<% @user.ideas.each do |i| %>
+	<%= link_to "#{i.title}",idea_path(i)%> <br>
+	<%= image_tag (i.image_url(:thumb).to_s) %>
 	<% end %>
+
+
+
+
+	<div class="profile-requests">
+		<% current_user.received_conversations.each do |convo| %>
+			<% if convo.verify == false %>
+				<!-- Button to accept request -->
+				<%= image_tag convo.author.avatar_url, id: 'sender-pic' %>
+
+				<!-- Button for Modal  -->
+				<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+					Accept <%= convo.author.first_name %>'s Request
+				</button>
+
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h1>Nice! Go and chat with <%= convo.author.first_name %>!</h1>
+							</div>
+							<!-- <div class="modal-body">
+								...
+							</div> -->
+							<div class="modal-footer">
+								<%= button_to "Talk to #{convo.author.first_name}!", conversation_path(convo), method: :patch, class: 'btn btn-primary btn-lg' %>
+							</div>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+
+	<div class="profile-conversations">
+		<% current_user.authored_conversations.each do |convo| %>
+			<% if convo.verify == true %>
+				<p><%= "#{convo.idea.user.first_name} wants to talk!" %></p>
+				<%= button_to "Talk to #{convo.recipient.first_name}!", idea_conversation_path(convo,convo), method: :get, class: 'btn btn-primary btn-lg' %>
+			<% end %>
+		<% end %>
+	</div>
+
 </div>
