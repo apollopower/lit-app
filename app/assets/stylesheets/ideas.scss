@@ -12,6 +12,10 @@
   }
 }
 
+.container {
+  text-align: center;
+}
+
 .ideamenu{
   display: flex;
   justify-content: flex-end;
@@ -19,9 +23,6 @@
   background-color: #979898;;
 }
 
-.container{
-  background-color:blue;
-}
 
 .submitter-pic{
   max-width: 4em;

@@ -52,6 +52,36 @@ class CommentsController < ApplicationController
     end
   end
 
+  def sort_by_problem_addressed
+    @idea = Idea.find(params[:idea_id])
+    @comments= Comment.problem_addressed
+    render template: "ideas/#{@idea.id}"
+  end
+
+  def sort_by_enhancement
+    @idea = Idea.find(params[:idea_id])
+    @comments= Comment.enhance_idea
+    render template: '/ideas/:id'
+  end
+
+  def sort_by_implementation
+    @idea = Idea.find(params[:idea_id])
+    @comments= Comment.implementing_idea
+    render template: '/ideas/:id'
+  end
+
+  def sort_by_disagree
+    @idea = Idea.find(params[:idea_id])
+    @comments= Comment.disagree
+    render template: '/ideas/:id'
+  end
+
+  def sort_by_other
+    @idea = Idea.find(params[:idea_id])
+    @comments= Comment.other
+    render template: '/ideas/:id'
+  end
+
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
