@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 20170624223846) do
     t.integer "upvotes_count", default: 0
     t.integer "user_id"
     t.integer "favorites_count"
-    t.string "category"
     t.string "image"
+    t.string "category"
   end
 
   create_table "messages", force: :cascade do |t|

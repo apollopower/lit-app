@@ -8,7 +8,7 @@ $(document).ready(function(){
         dataType: "json"
       })
       .done(function(data){
-        $this.closest('.idea-container').find('.idea-count').html(data.idea_count)
+        $this.closest('.caption').find('.idea-count').html(data.idea_count)
         if ($this.attr("class") === 'vote') {
           toggleVoteClass($this,'upvote', 'vote')
         }else{
