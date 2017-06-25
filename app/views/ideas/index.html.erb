@@ -1,3 +1,4 @@
+
 <h1 id=hometitle>See Whats LiT</h1>
 
 <% unless current_user %>
@@ -8,6 +9,8 @@
 
 <% if current_user %>
 
+  <% if current_user %>
+    <h1>See Whats LiT</h1>
 
  <div class= "ideamenu">
   <!-- <div> <button onclick="myFunction()" class="dropbtn">Sort</button> -->
@@ -99,12 +102,15 @@
 
 
 
-
-
-  <% if @ideas.blank? %>
-    <h4> <%= @ideas %>There are no ideas containing the term <%= params[:search] %>.</h4>
-  <% end %>
-
+        <button onclick="myFunction()" class="dropbtn">Sort</button>
+          <div>
+        <!-- mydropdown what is being detected to hide/show content -->
+            <ul id="myDropdown" class="dropdown-content">
+              <a><%= link_to "Oldest To Newest", oldestfirst_path %></a>
+              <a><%= link_to "Upvote Sort", upvotesort_path %></a>
+              <a> Category </a>
+            </ul>
+          </div>
 
   <% @ideas.each do |idea| %>
     <div class="idea">
@@ -120,4 +126,3 @@
     </div>
   <% end %>
 
-<% end %>

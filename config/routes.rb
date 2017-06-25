@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get 'auth/facebook/callback', to: 'sessions#create'
   get 'logout'   => 'sessions#destroy', as: "logout"
 
-  get 'usersprofile/:id' => 'users#show', as: 'usersprofile'
+  get 'usersprofile/:id(:.format)' => 'users#show', as: 'usersprofile'
   put 'editusersprofile/:id' => 'users#update', as: 'editusersprofile'
 
 
@@ -35,5 +35,8 @@ Rails.application.routes.draw do
 
   post 'tokens' => 'tokens#create'
   # post '/ideas/conversations' => 'conversations#create'
+
+  # Serve Websockets cable requests in-process
+  mount ActionCable.server => '/cable'
 
 end
