@@ -29,4 +29,7 @@ Rails.application.routes.draw do
   post 'tokens' => 'tokens#create'
   # post '/ideas/conversations' => 'conversations#create'
 
+  # Serve Websockets cable requests in-process
+  mount ActionCable.server => '/cable'
+
 end

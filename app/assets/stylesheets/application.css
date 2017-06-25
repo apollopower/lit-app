@@ -34,3 +34,13 @@ body {
 .header-content__item {
   display: inline;
 }
+
+/* Login Page */
+.background-color {
+  background-color: rgba(255,251,124,0.62);
+  
+}
+#login-logo {
+  max-width: 18em;
+  background-image:
+}

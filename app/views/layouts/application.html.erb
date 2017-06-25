@@ -33,5 +33,26 @@
       </ul>
     </div>
     <%= yield %>
+
+    <!-- Module for Notification -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="message_notification" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel"></h4>
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+            <%= button_to "Chat", nil, method: :patch, class: 'btn btn-primary btn-lg chat-with' %>
+            <a href="" class="btn btn-primary btn-lg chat-with-receiver"></a>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
