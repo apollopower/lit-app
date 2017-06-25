@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     resources :conversations, only: [:show, :new, :create]
     resources :upvotes, only: [:create]
     resources :comments, only: [:create]
+
+
+    # Sorting Comments Routes
+    get '/sortedcomments' => 'comments#sorting_comments'
   end
   resources :conversations, only: [:update]
   resources :favorite_ideas, only: [:create, :destroy]
@@ -23,6 +27,9 @@ Rails.application.routes.draw do
 
   get 'upvotesort' => 'ideas#upvotesort'
   get 'oldestfirst' => 'ideas#sort_by_oldest_first'
+
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

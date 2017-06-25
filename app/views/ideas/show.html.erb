@@ -1,26 +1,28 @@
-<h3><%= @idea.title %></h3>
-<p><%= @idea.category%><p>
-<p><%= @idea.summary %><p>
-<p><%= @idea.problem %><p>
-<p><%= @idea.description %><p>
-<p><%= @idea.guidance %><p>
-<%= image_tag(@idea.image_url(:thumb).to_s) %>
-<%= link_to "Return to Ideas", ideas_path %>
+<div class="ideasection">
+  <h3><%= @idea.title %></h3>
+  <%= image_tag(@idea.image_url().to_s) %><br><br
+  <p><%= @idea.category%><p>
+  <p><%= @idea.summary %><p>
+  <p><%= @idea.problem %><p>
+  <p><%= @idea.description %><p>
+  <p><%= @idea.guidance %><p>
 
 
-<%= link_to "View This User's Profile", usersprofile_path(id: @idea.user.id) %>
-
-<h3>Submitted by <%= @idea.user.first_name if @idea.user %></h3>
+<h5>Submitted by <%= @idea.user.first_name if @idea.user %></h5>
 
 <%= image_tag @idea.user.avatar_url, id: 'profile-pic' if @idea.user %>
 <br>
+<%= link_to "View This User's Profile", usersprofile_path(id: @idea.user.id) %><br>
 
 <% unless current_user == @idea.user %>
+</div>
 
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    <%= "Message " + @idea.user.first_name + " about " + @idea.title %>
-  </button>
+  <div class="container">
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+      <%= "Message " + @idea.user.first_name %>
+    </button>
+  </div>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -41,11 +43,42 @@
   </div>
 <% end %>
 
-<h3>Leave a Comment</h3>
+  <div class="container">
+    <h3>Leave a Comment</h3>
 
-<%= render 'comments/form', comment: @comment %>
+    <%= render 'comments/form', comment: @comment %>
 
-<% @comments.each do |comment| %>
-  <p><%= comment.body %></p>
-  <h6>Submitted by <%= comment.user.first_name %></h6>
-<% end %>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+           <a class="navbar-brand" href="#">Sort</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+           <ul class="nav navbar-nav">
+             <li class="active"><%= link_to "All", idea_sortedcomments_path(@idea, sort: 'all'), class: "sort" %></li>
+             <li ><%= link_to "Problem Being Addressed", idea_sortedcomments_path(@idea, sort: 'problem_addressed'), class: "sort" %></li>
+             <li ><%= link_to "Ways to Enhance Idea", idea_sortedcomments_path(@idea, sort: 'enhance_idea'), class: "sort"%></li>
+             <li ><%= link_to "Implementing Idea", idea_sortedcomments_path(@idea, sort: 'implementation'), class: "sort"%></li>
+             <li><%= link_to "Disagree With Aspect of Idea", idea_sortedcomments_path(@idea, sort:'disagree'), class: "sort" %></li>
+             <li><%= link_to "Other", idea_sortedcomments_path(@idea, sort: 'other'), class: "sort" %></li>
+
+               </ul>
+             </li>
+           </ul>
+         </div><!-- /.navbar-collapse -->
+       </div><!-- /.container-fluid -->
+
+      </nav>
+<div class= "comment-wrapper">
+        <%=render "comments/comment_sort"%>
+</div>
+  </div>

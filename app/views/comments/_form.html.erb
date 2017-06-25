@@ -13,10 +13,15 @@
 
   <div class="field">
     <%= form.label :body %>
+    <br>
     <%= form.text_area :body, id: :comment_body %>
-
     <%= form.hidden_field :user_id, value: current_user.id %>
     <%= form.hidden_field :idea_id, value: @idea.id %>
+    <br>
+
+    Topic:
+    <%= form.select :topic, ['Problem Being Addressed','Ways to Enhance Idea', 'Implementing Idea', 'Other']%> </p>
+
   </div>
 
   <div class="actions">

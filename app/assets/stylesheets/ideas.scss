@@ -1,9 +1,44 @@
 // Place all the styles related to the Ideas controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.idea{
+  background-color:#979898;
+  text-align: center;
+  width: 100%;
+  h3 img {
+    text-align: center;
+    display: block;
+    padding-top: 1em;
+  }
+}
+
+.container {
+  text-align: center;
+}
+
+.ideamenu{
+  display: flex;
+  justify-content: flex-end;
+  justify-content: space-between;
+  background-color: #979898;;
+}
+
+
+.submitter-pic{
+  max-width: 4em;
+  border-radius: 50%;
+}
+
+img {
+  max-width: 20em;
+}
 
 #profile_image {
   max-width: 5em;
+}
+
+#idea-image {
+  max-width: 20em;
 }
 
 #messages {
@@ -12,20 +47,27 @@
   border: 1px solid #ddd;
 }
 
-/* Dropdown Button */
-.dropbtn {
-    background-color: #1863e6;
-    color: white;
-    padding: 10px;
-    font-size: 12px;
-    border: none;
-    cursor: pointer;
-    border-radius: 25%;
+#hometitle{
+  text-align: center;
 }
 
-/* Dropdown button on hover & focus */
-.dropbtn:hover {
-    background-color: #1863e6;
+.voting {
+  display: inline;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    padding: 1em;
+    padding-top: 1.5em;
+    background-color: #979898;
+    color: white;
+    font-size: 1em;
+    border: none;
+    cursor: pointer
+}
+
+#submit-new-idea {
+  color: white;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -39,9 +81,9 @@
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    padding-left: 0;
 }
 
 /* Links inside the dropdown */
@@ -52,11 +94,24 @@
     display: block;
 }
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
-
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 
 .modal-title {
   color: green;
+}
+
+#searchbar{
+  padding: 1em;
+}
+
+.jumbotron{
+  display: inline-block;
+  display: flex;
+  justify-content: flex-start;
+}
+
+// comments
+
+.comments {
+  border-bottom: 1px solid grey;
 }

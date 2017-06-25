@@ -26,12 +26,21 @@
   </head>
 
   <body>
-    <div class="header">
-      <ul class="header-content">
-        <li class="header-content__item"><%= link_to image_tag('lit.png'), root_path, id: 'logo' %></li>
-        <li class="header-content__item"><%= current_user.name if current_user %></li>
-      </ul>
-    </div>
+
+
+      <div class="header">
+
+          <%= link_to image_tag('lit.png'), root_path, id: 'logo' %>
+
+          <% if current_user %>
+            Welcome, <%=current_user.first_name%>!
+            <%= link_to "Profile", usersprofile_path(id: current_user.id) %>
+            <a  href="/logout" role="button" class= "logout">Log Out</a>
+            <% else %>
+              <a class="btn btn-lg btn-primary" href="/auth/facebook" role="button">Log In With Facebook</a>
+            <% end %>
+      </div>
+
     <%= yield %>
 
     <!-- Module for Notification -->

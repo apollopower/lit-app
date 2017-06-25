@@ -52,6 +52,57 @@ class CommentsController < ApplicationController
     end
   end
 
+  def sorting_comments
+    @idea = Idea.find(params[:idea_id])
+    if params['sort']== 'problem_addressed'
+      @comments = @idea.comments.problem_addressed
+    elsif params['sort']== 'enhance_idea'
+      @comments = @idea.comments.enhance_idea
+    elsif params[:sort]== 'implementation'
+      @comments = @idea.comments.implementing_idea
+    elsif params[:sort]=='all'
+      @comments = @idea.comments.order('created_at DESC')
+    elsif params[:sort]== 'disagree'
+      @comments = @idea.comments.disagree
+    else params[:sort]== 'other'
+      @comments = @idea.comments.other
+    end
+
+    respond_to do |format|
+      format.html{ render partial: "comment_sort" }
+    end
+  end
+
+  def sort_by_problem_addressed
+    @idea = Idea.find(params[:idea_id])
+    @comments = Comment.problem_addressed
+    render template: "ideas/#{@idea.id}"
+  end
+
+  def sort_by_enhancement
+    @idea = Idea.find(params[:idea_id])
+    @comments= Comment.enhance_idea
+    render template: '/ideas/:id'
+  end
+
+  def sort_by_implementation
+    @idea = Idea.find(params[:idea_id])
+    @comments= Comment.implementing_idea
+    render template: '/ideas/:id'
+  end
+
+  def sort_by_disagree
+    @idea = Idea.find(params[:idea_id])
+    @comments= Comment.disagree
+    render template: '/ideas/:id'
+  end
+
+  def sort_by_other
+    @idea = Idea.find(params[:idea_id])
+    @comments= Comment.other
+    render template: '/ideas/:id'
+  end
+
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
@@ -70,6 +121,7 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:body, :user_id, :idea_id)
+      params.require(:comment).permit(:body, :user_id, :idea_id, :topic)
     end
+
 end
