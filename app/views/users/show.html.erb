@@ -1,48 +1,53 @@
 <div class="donuts">
 
 	<%=  image_tag @user.avatar_url, id: 'profile-pic' %>
+<div class="container">
 
-		<h1><%=@user.name %></h1>
-			<br>
-			<br>
+		<h2 id="username"><%=@user.name %></h2>
 
-	<%= form_tag editusersprofile_path(@user), method: :put do %>
+	<div class="line">
+			<div class="social-links">
+				<ul>
+					<h1><li><%= link_to(fa_icon("github"), @user.github)%></li></h1>
+					<h1><li><%= link_to(fa_icon("linkedin-square"), @user.linkedin)%></li></h1>
+					<h1><li><%= link_to(fa_icon("twitter"), @user.twitter)%></li></h1>
+				</ul>
+			</div>
+	</div>
 
-		<h3>A little about me</h3>
+
+	<div class="line">
+		<h3>About</h3>
 		<%= @user.bio %>
-			<br>
-			<br>
-		<% if @user == current_user %>
-			<%= text_area_tag :bio, @user.bio %>
-		<% end %>
 
+	</div>
+	<div class="line">
 		<h3>Skills and Strengths</h3>
 		<%= @user.skills %>
 			<br>
-			<br>
-		<% if @user == current_user %>
-			<%= text_area_tag :skills, @user.skills %>
-		<% end %>
-			<br>
-
-
-
-	<%end%>
-	<div class="social-links">
-		<ul>
-			<li><%= link_to(fa_icon("github"), @user.github)%></li>
-			<li><%= link_to(fa_icon("linkedin-square"), @user.linkedin)%></li>
-			<li><%= link_to(fa_icon("twitter"), @user.twitter)%></li>
-		</ul>
 	</div>
 
-	<h3> <%= @user.first_name %>'s Ideas </h3>
-	<% @user.ideas.each do |i| %>
-	<%= link_to "#{i.title}",idea_path(i)%> <br>
-	<%= image_tag (i.image_url(:thumb).to_s) %>
-	<% end %>
 
+	<h3> My Ideas </h3>
 
+	<div class="container">
+		<div class="ideas-center">
+			<% @user.ideas.each do |idea| %>
+				<div class="row">
+					<div class="col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<%= (image_tag(idea.image_url().to_s)) %>
+							<div class="caption">
+								<h5><%= idea.title %></h5>
+								<p><%= button_to "View Idea", idea_path(idea), method: :get %></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
 
 
 	<div class="profile-requests">

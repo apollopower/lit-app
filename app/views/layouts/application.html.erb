@@ -28,18 +28,18 @@
   <body>
 
 
-      <div class="header">
 
-          <%= link_to image_tag('lit.png'), root_path, id: 'logo' %>
+    <% if current_user %>
 
-          <% if current_user %>
-            Welcome, <%=current_user.first_name%>!
-            <%= link_to "Profile", usersprofile_path(id: current_user.id) %>
-            <a  href="/logout" role="button" class= "logout">Log Out</a>
-            <% else %>
-              <a class="btn btn-lg btn-primary" href="/auth/facebook" role="button">Log In With Facebook</a>
-            <% end %>
-      </div>
+    <!-- Navbar Experiment START -->
+    <div class="header-nav">
+      <ul class="nav nav-pills">
+        <li role="presentation"><%= link_to image_tag('lit.png'), root_path, id: 'logo' %>
+        <li role="presentation" ><a href="#"><%= link_to "Profile", usersprofile_path(id: current_user.id), class: 'navlinks' %></a></li>
+        <li role="presentation" ><a href="#"><%= link_to "Log Out", logout_path, class: 'navlinks'  %></a></li>
+      </ul>
+    </div>
+    <!-- Navbar Experiment END -->
 
     <%= yield %>
 
@@ -63,5 +63,19 @@
         </div>
       </div>
     </div>
+  <% else %>
+    <body class="login-page">
+    <%= image_tag 'lit.png', id: 'home-logo' %>
+    <div class="slogan">
+      <h1>Launching Ideas Together</h1>
+      <br>
+      <h3>Crowdsource your philanthropic and startup ideas</h3>
+    </div>
+    <div class="login-button">
+      <a class="btn btn-lg btn-primary" id=:login-button href="/auth/facebook" role="button">Log In With Facebook</a>
+    </div>
+  <% end %>
+
+
   </body>
 </html>

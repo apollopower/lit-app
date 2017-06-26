@@ -1,4 +1,4 @@
-module ApplicationCable
+b module ApplicationCable
   class Connection < ActionCable::Connection::Base
     include
     identified_by :current_user

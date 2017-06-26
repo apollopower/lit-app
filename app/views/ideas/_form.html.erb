@@ -1,3 +1,5 @@
+
+<div class="center-form">
 <%= form_with(model: @idea,remote: true, class:"create_idea")do |f| %>
   <% if @idea.errors.any? %>
     <div id="error_explanation">
@@ -12,47 +14,60 @@
     </div>
   <% end %>
 
+<div class="container">
+  <div class="container-form">
+    <h3 class="form-field"> Idea Name </h3><br>
+      <%= f.text_field :title,  :size => "47" %>
+  </div>
+
+
   <p>
-    Title:
-    <%= f.text_field :title %>
+    <div class="container-form">
+      <h3 class="form-field">Summary </h3><br>
+      <%= f.text_area :summary, placeholder: "Provide a brief summary of your idea." %>
+    </div>
   </p>
 
   <p>
-  Summary: <br>
-  <%= f.text_area :summary %>
+    <div class="container-form">
+      <h3 class="form-field">Problem</h3><br>
+      <%= f.text_area :problem, placeholder: "What problem does your idea fix?" %>
+    </div>
   </p>
 
   <p>
-    Problem Being Addressed:<br>
-    <%= f.text_area :problem %>
+    <div class="container-form">
+      <h3 class="form-field">Description</h3><br>
+      <%= f.text_area :description, placeholder: "Provide an in-depth description of your idea." %>
+    </div>
   </p>
 
   <p>
-    Description:<br>
-    <%= f.text_area :description %>
-  </p>
-
-  <p>
-  Seeking Guidance In:<br>
-  <%= f.text_area :guidance %>
+    <div class="container-form">
+      <h3 class="form-field">Seeking Guidance In</h3><br>
+      <%= f.text_area :guidance, placeholder: "What do you need help with?" %>
+    </div>
   </p>
 
   <div class="field">
-    Add an image (OPT.)
+  <div class="container-form">
+    <h3 class="form-field">Add an image</h3>
     <%= f.file_field :image %>
-    </div>
+  </div>
+  </div>
 
   <p>
-  Category:
-    <%= f.select :category, ['Arts','Business', 'Education',  'Finance', 'Food & Drink', 'Gaming/ Entertainment',
+  <div class="container-form">
+    <h3 class="form-field">Category</h3><br>
+      <div id="catdropdown">
+    <%= f.select :category,  ['Arts','Business', 'Education',  'Finance', 'Food & Drink', 'Gaming/ Entertainment',
       'Health/Wellness', 'Legal', 'Life Science', 'Medical', 'Music', 'Navigation','News','Photo & Video',
       'Real Estate','Robotics','Security','Shopping','Social Media','Technology', 'Transportation','Travel',
-      'Utilities', 'Other']%> </p>
-
-
-  <p>
-    <button> Save for later </button>
-  </p>
-
+      'Utilities', 'Other'] %> </p>
+    </div>
+  </div>
 
 <% end %>
+</div>
+
+</div>

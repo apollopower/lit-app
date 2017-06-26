@@ -16,11 +16,11 @@ $(function() {
     function setupChannel() {
         chatChannel.join().then(function(channel) {
             console.log("about to add a noty to the chat!")
-            printMessage(username + ' joined the chat.');
+            printMessage( '<strong>' + username + '</strong>' + ' joined the chat.');
         });
         console.log("Another test")
         chatChannel.on('messageAdded', function(message) {
-            printMessage(message.author + ": " + message.body);
+            printMessage('<strong>' + message.author + ": " + '</strong>'  + message.body);
          });
     }
 
