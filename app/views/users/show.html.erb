@@ -5,7 +5,6 @@
 
 		<h2 id="username"><%=@user.name %></h2>
 
-	<div class="line">
 			<div class="social-links">
 				<ul>
 					<h1><li><%= link_to(fa_icon("github"), @user.github)%></li></h1>
@@ -13,19 +12,28 @@
 					<h1><li><%= link_to(fa_icon("twitter"), @user.twitter)%></li></h1>
 				</ul>
 			</div>
-	</div>
 
 
-	<div class="line">
-		<h3>About</h3>
-		<%= @user.bio %>
 
-	</div>
-	<div class="line">
-		<h3>Skills and Strengths</h3>
-		<%= @user.skills %>
-			<br>
-	</div>
+
+	<div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+					<h3>About</h3>
+					<%= @user.bio %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+					<h3>Skills and Strengths</h3>
+					<%= @user.skills %>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 	<h3> My Ideas </h3>
@@ -48,47 +56,5 @@
 		</div>
 	</div>
 </div>
-
-
-	<div class="profile-requests">
-		<% current_user.received_conversations.each do |convo| %>
-			<% if convo.verify == false %>
-				<!-- Button to accept request -->
-				<%= image_tag convo.author.avatar_url, id: 'sender-pic' %>
-
-				<!-- Button for Modal  -->
-				<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-					Accept <%= convo.author.first_name %>'s Request
-				</button>
-
-				<!-- Modal -->
-				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									<h1>Nice! Go and chat with <%= convo.author.first_name %>!</h1>
-							</div>
-							<!-- <div class="modal-body">
-								...
-							</div> -->
-							<div class="modal-footer">
-								<%= button_to "Talk to #{convo.author.first_name}!", conversation_path(convo), method: :patch, class: 'btn btn-primary btn-lg' %>
-							</div>
-						</div>
-					</div>
-				</div>
-			<% end %>
-		<% end %>
-	</div>
-
-	<div class="profile-conversations">
-		<% current_user.authored_conversations.each do |convo| %>
-			<% if convo.verify == true %>
-				<p><%= "#{convo.idea.user.first_name} wants to talk!" %></p>
-				<%= button_to "Talk to #{convo.recipient.first_name}!", idea_conversation_path(convo,convo), method: :get, class: 'btn btn-primary btn-lg' %>
-			<% end %>
-		<% end %>
-	</div>
 
 </div>

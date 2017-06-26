@@ -22,7 +22,7 @@
 body {
   font-family: helvetica;
   /*background: linear-gradient(-90deg, #122452, #668cd0);*/
-  background-image: url('https://www.desktopbackground.org/t/2010/06/13/32505_puck-faded-blue-spot-digital-backdrop-backgrounds-puckett-pages_4290x2856_h.jpg');
+  background-image: url('https://www.xmple.com/wallpaper/grey-white-gradient-linear-2560x1600-c2-808080-ffffff-a-90-f-14.svg');
 }
 
 .ideasection {
@@ -30,12 +30,35 @@ body {
 }
 
 #logo img {
-  max-width: 5em;
-  /*padding-bottom: 1em;*/
+  max-width: 5em;*/
+  padding-bottom: 1em;
+}
+.navv{
+  display: inline;
+}
+.navlogo{
+  display: flex;
+  justify-content: center;
+}
+
+.navlogout{
+  display: flex;
+  justify-content: flex-end;
 }
 
 .header {
-  display: inline;
+  position: fixed;
+  width: 100%;
+
+  z-index: 10000;
+}
+.spacer{
+  height: 90px;
+}
+/* Nav Bar */
+
+.fixed-navbar {
+
 }
 
 /* Login Page */
@@ -63,4 +86,13 @@ img {
 
 .navlinks {
   color:white;
+}
+
+.top{
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-pills{
+  background-image: url('https://ak2.picdn.net/shutterstock/videos/15021937/thumb/1.jpg')
 }

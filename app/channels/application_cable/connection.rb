@@ -1,6 +1,6 @@
-b module ApplicationCable
+module ApplicationCable
   class Connection < ActionCable::Connection::Base
-    include
+    # include
     identified_by :current_user
 
     def connect
