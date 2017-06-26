@@ -6,7 +6,13 @@
   margin-bottom: 0;
 }
 
+
 #nav-pills {
   display: flex;
   justify-content: space-between;
+
+}
+
+#nav-pills a {
+  background-color: transparent;
 }

@@ -17,10 +17,10 @@
     <%= form.hidden_field :user_id, value: current_user.id %>
     <%= form.hidden_field :idea_id, value: @idea.id %>
     <br>
-    <div class="topic-select">
+
       <h4>Topic:
-      <%= form.select :topic, ['Choose Topic','Problem Being Addressed','Ways to Enhance Idea', 'Implementing Idea', 'Other']%> </h4>
-    </div>
+      <%= form.select :topic, ['Choose Topic  ▼','Problem Being Addressed','Ways to Enhance Idea', 'Implementing Idea', 'Other'], id: "topicdrop"%> </h4>
+
 
   </div>
 
