@@ -1,12 +1,21 @@
-
-<% if @comments.size < 1 %>
-  <h1>No comments for this topic</h1>
-<% else %>
-  <% @comments.each do |comment| %>
-    <div class="comment">
-      <p><%= comment.body %></p>
-      <p><%= comment.topic %></p>
-      <h6>Submitted by <%= comment.user.first_name %></h6>
+<div class="container">
+  <% if @comments.size < 1 %>
+    <h1>No comments for this topic</h1>
+  <% else %>
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <% @comments.each do |comment| %>
+              <div class="comment-seperation">
+                <div class="comment">
+                  <p class="comment-topic"><strong><%= comment.topic %></strong></p>
+                  <p class="comment-body"><%= comment.body %></p>
+                  <h6 class="comment-body">Submitted by <%= comment.user.first_name %></h6>
+                </div>
+              </div>
+            <% end %>
+        </div>
+      </div>
     </div>
   <% end %>
-<% end %>
+</div>

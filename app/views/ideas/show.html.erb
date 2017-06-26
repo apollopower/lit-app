@@ -25,9 +25,10 @@
 
 <h5>Submitted by <%= @idea.user.first_name if @idea.user %></h5>
 
+<%= button_to "View This User's Profile", usersprofile_path(id: @idea.user.id), method: :get, class: 'btn btn-primary' %><br>
+
 <%= image_tag @idea.user.avatar_url, id: 'profile-pic' if @idea.user %>
 <br>
-<%= link_to "View This User's Profile", usersprofile_path(id: @idea.user.id) %><br>
 
 <% unless current_user == @idea.user %>
 </div>
@@ -59,7 +60,7 @@
 <% end %>
 
   <div class="container">
-    <h3>Leave a Comment</h3>
+    <h3 class="comment-section-title">Leave a Comment</h3>
 
     <%= render 'comments/form', comment: @comment %>
 
@@ -91,9 +92,9 @@
            </ul>
          </div><!-- /.navbar-collapse -->
        </div><!-- /.container-fluid -->
+  </div>
 
       </nav>
 <div class= "comment-wrapper">
         <%=render "comments/comment_sort"%>
 </div>
-  </div>
