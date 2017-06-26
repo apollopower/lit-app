@@ -6,9 +6,10 @@
   <h2><%= "Brainstorming with " + @conversation.author.first_name %></h2>
 <% end %>
 
-<div class="row">
- <div class="col-md-8">
-   <div id="messages"></div>
-   <input id="chat-input" class="form-control" type="text" placeholder="Talk about <%= @conversation.idea.title %>" autofocus/>
- </div>
-</div>
+
+  <div class="row">
+   <div class="col-md-8">
+     <div id="messages"></div>
+     <input id="chat-input" class="form-control" type="text" placeholder="Talk about <%= @conversation.idea.title %>" autofocus/>
+   </div>
+  </div>

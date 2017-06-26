@@ -16,8 +16,8 @@
 
 <div class="container">
   <div class="container-form">
-    <h3 class="form-field"> Title </h3><br>
-      <%= f.text_field :title, :size => "47" %>
+    <h3 class="form-field"> Idea Name </h3><br>
+      <%= f.text_field :title,  :size => "47" %>
   </div>
 
 
@@ -30,8 +30,8 @@
 
   <p>
     <div class="container-form">
-      <h3 class="form-field">Problem Addressed</h3><br>
-      <%= f.text_area :problem %>
+      <h3 class="form-field">Problem</h3><br>
+      <%= f.text_area :problem, placeholder: "What problem does your idea fix?" %>
     </div>
   </p>
 
@@ -45,7 +45,7 @@
   <p>
     <div class="container-form">
       <h3 class="form-field">Seeking Guidance In</h3><br>
-      <%= f.text_area :guidance %>
+      <%= f.text_area :guidance, placeholder: "What do you need help with?" %>
     </div>
   </p>
 
@@ -59,10 +59,12 @@
   <p>
   <div class="container-form">
     <h3 class="form-field">Category</h3><br>
-    <%= f.select :category, ['Arts','Business', 'Education',  'Finance', 'Food & Drink', 'Gaming/ Entertainment',
+      <div id="catdropdown">
+    <%= f.select :category,  ['Arts','Business', 'Education',  'Finance', 'Food & Drink', 'Gaming/ Entertainment',
       'Health/Wellness', 'Legal', 'Life Science', 'Medical', 'Music', 'Navigation','News','Photo & Video',
       'Real Estate','Robotics','Security','Shopping','Social Media','Technology', 'Transportation','Travel',
-      'Utilities', 'Other']%> </p>
+      'Utilities', 'Other'] %> </p>
+    </div>
   </div>
 
 <% end %>
