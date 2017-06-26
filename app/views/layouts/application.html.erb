@@ -32,13 +32,17 @@
     <% if current_user %>
 
     <!-- Navbar Experiment START -->
-    <div class="header-nav">
-      <ul class="nav nav-pills">
-        <li role="presentation"><%= link_to image_tag('lit.png'), root_path, id: 'logo' %>
-        <li role="presentation" ><a href="#"><%= link_to "Profile", usersprofile_path(id: current_user.id), class: 'navlinks' %></a></li>
-        <li role="presentation" ><a href="#"><%= link_to "Log Out", logout_path, class: 'navlinks'  %></a></li>
-      </ul>
+    <div class="header fixed-navbar">
+      <div class="header-nav fixed-top">
+        <ul class="nav nav-pills" id="nav-pills">
+          <li role="presentation"><a href="#"><%= link_to "Profile", usersprofile_path(id: current_user.id), class: 'navlinks' %></a></li>
+          <li role="presentation"><%= link_to image_tag('lit.png'), root_path, id: 'logo' %>
+          <li role="presentation"><a href="#"><%= link_to "Log Out", logout_path, class: 'navlinks'  %></a></li>
+        </ul>
+      </div>
     </div>
+
+    <div class="spacer">    </div>
     <!-- Navbar Experiment END -->
 
     <%= yield %>

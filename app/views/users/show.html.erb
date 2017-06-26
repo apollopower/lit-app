@@ -54,7 +54,7 @@
 		<% current_user.received_conversations.each do |convo| %>
 			<% if convo.verify == false %>
 				<!-- Button to accept request -->
-				<%= image_tag convo.author.avatar_url, id: 'sender-pic' %>
+				<%= image_tag convo.author.avatar_url, id: 'sender-pic' %> <br>
 
 				<!-- Button for Modal  -->
 				<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">

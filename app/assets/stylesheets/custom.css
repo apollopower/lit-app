@@ -1,0 +1,12 @@
+#navbar-custom {
+  margin-bottom: 0;
+}
+
+#form-group-custom {
+  margin-bottom: 0;
+}
+
+#nav-pills {
+  display: flex;
+  justify-content: space-between;
+}
