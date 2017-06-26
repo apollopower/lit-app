@@ -34,7 +34,7 @@
 		<div class="ideas-center">
 			<% @user.ideas.each do |idea| %>
 				<div class="row">
-					<div class="col-xs-8 col-sm-6 col-md-4">
+					<div class="col-sm-6 col-md-4">
 						<div class="thumbnail">
 							<%= (image_tag(idea.image_url().to_s)) %>
 							<div class="caption">

@@ -3,18 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .donuts {
 		text-align: center;
+		color: white;
 }
 
-// ul {
-// 	display: inline;
-// 	li {
-// 		list-style: none;
-// 		display: inline;
-// 		font-size: 4em;
-// 		padding-left: 0.5em;
-// 		padding-right: 0.5em;
-// 	}
-// }
 
 .social-links {
 	padding-right: 2em;
@@ -27,12 +18,16 @@
 	}
 }
 
-.fa-twitter{
-	color:blue;
+.fa-github {
+	color: black;
 }
 
-.fa-github {
-	color: black
+.fa-linkedin-square {
+	color: black;
+}
+
+.fa-twitter {
+	color: black;
 }
 
 
@@ -58,17 +53,4 @@
 .line{
 	border-bottom: 1px solid grey;
 	padding-bottom: 1em;
-}
-
-.thumbnail img {
-	max-width: 4em;
-}
-
-.ideas-center {
-	margin: 0 auto;
-
-
-	.caption {
-		text-align: center;
-	}
 }
