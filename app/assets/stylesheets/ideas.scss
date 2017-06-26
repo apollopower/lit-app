@@ -12,8 +12,16 @@
   }
 }
 
+h1 {
+  text-align: center;
+}
+
 .container {
   text-align: center;
+}
+.center-form{
+  text-align: center;
+
 }
 
 .ideamenu{
@@ -23,10 +31,31 @@
   background-color: #979898;;
 }
 
+textarea {
+  border: 1px solid grey;
+  width: 99%;
+  height: 5em;
+}
+ .text_field {
+   border: 1px solid grey;
+   width: 80%;
+   height: 10%;
+ }
+
+
+
+ .form-field{
+   margin-bottom: 0;
+   text-align: left;
+ }
 
 .submitter-pic{
   max-width: 4em;
   border-radius: 50%;
+}
+
+.container-form {
+  text-align: left;
 }
 
 img {

@@ -17,8 +17,18 @@
 // }
 
 .social-links {
-	padding-top: 1em;
 	padding-right: 2em;
+	ul{
+		list-style: none;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+}
+
+.fa-twitter{
+	color:blue;
 }
 
 .fa-github {
@@ -27,12 +37,14 @@
 
 
 #profile-pic {
-	max-width: 10em;
-	border-radius: 50%;
+	max-width: 45%;
 	display: block;
 	margin: auto;
 }
 
+#username{
+	margin-bottom:0;
+}
 #sender-pic {
 	max-width: 4em;
 	border-radius: 50%;
@@ -41,4 +53,22 @@
 .profile-requests {
 	padding-top: 1em;
 	border-top: 1px solid black;
+}
+
+.line{
+	border-bottom: 1px solid grey;
+	padding-bottom: 1em;
+}
+
+.thumbnail img {
+	max-width: 4em;
+}
+
+.ideas-center {
+	margin: 0 auto;
+
+
+	.caption {
+		text-align: center;
+	}
 }
