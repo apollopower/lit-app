@@ -12,6 +12,5 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require jquery
 //= require twilio
 //= require_tree .
