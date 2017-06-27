@@ -64,7 +64,9 @@
           </div>
           <div class="modal-footer">
             <%= button_to "Chat", nil, method: :patch, class: 'btn btn-primary btn-lg chat-with' %>
-            <a href="" class="btn btn-primary btn-lg chat-with-receiver"></a>
+            <% if current_user.first_name == "Christina" %>
+              <a href="" class="btn btn-primary btn-lg chat-with-receiver"></a>
+            <% end %>
           </div>
         </div>
       </div>
@@ -80,6 +82,22 @@
     <div class="login-button">
       <a class="btn btn-lg btn-primary" id=:login-button href="/auth/facebook" role="button">Log In With Facebook</a>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   <% end %>
 
 

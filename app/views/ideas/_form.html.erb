@@ -24,42 +24,43 @@
   <p>
     <div class="container-form">
       <h3 class="form-field">Summary </h3><br>
-      <%= f.text_area :summary, placeholder: "Provide a brief summary of your idea." %>
+      <%= f.text_area :summary, placeholder: "Provide a brief summary of your idea.", class: 'form-box' %>
     </div>
   </p>
 
   <p>
     <div class="container-form">
       <h3 class="form-field">Problem</h3><br>
-      <%= f.text_area :problem, placeholder: "What problem does your idea fix?" %>
+      <%= f.text_area :problem, placeholder: "What problem does your idea fix?", class: 'form-box' %>
     </div>
   </p>
 
   <p>
     <div class="container-form">
       <h3 class="form-field">Description</h3><br>
-      <%= f.text_area :description, placeholder: "Provide an in-depth description of your idea." %>
+      <%= f.text_area :description, placeholder: "Provide an in-depth description of your idea.", class: 'form-box' %>
     </div>
   </p>
 
   <p>
     <div class="container-form">
       <h3 class="form-field">Seeking Guidance In</h3><br>
-      <%= f.text_area :guidance, placeholder: "What do you need help with?" %>
+      <%= f.text_area :guidance, placeholder: "What do you need help with?", class: 'form-box' %>
     </div>
   </p>
 
   <div class="field">
   <div class="container-form">
     <h3 class="form-field">Add an image</h3>
-    <%= f.file_field :image %>
+    <br>
+    <%= f.file_field :image, class: 'form-box' %>
   </div>
   </div>
 
   <p>
   <div class="container-form">
     <h3 class="form-field">Category</h3><br>
-      <div id="catdropdown">
+      <div class="form-box" id="catdropdown">
     <%= f.select :category,  ['Arts  ▼','Business', 'Education',  'Finance', 'Food & Drink', 'Gaming/ Entertainment',
       'Health/Wellness', 'Legal', 'Life Science', 'Medical', 'Music', 'Navigation','News','Photo & Video',
       'Real Estate','Robotics','Security','Shopping','Social Media','Technology', 'Transportation','Travel',

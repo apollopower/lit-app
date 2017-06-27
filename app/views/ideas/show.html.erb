@@ -1,5 +1,5 @@
 <div class="ideasection">
-  <h3><%= @idea.title %></h3>
+  <h2><%= @idea.title %></h2><br>
   <%= image_tag(@idea.image_url().to_s) %><br><br>
 
   <!-- Idea Information -->
@@ -72,9 +72,9 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">Message Request Sent to <%= @idea.user.first_name %>!</h4>
         </div>
-        <!-- <div class="modal-body">
-          ...
-        </div> -->
+        <div class="modal-body">
+          <h3>Message request sent to <%= @idea.user.first_name %>!</h3>
+        </div>
         <div class="modal-footer">
           <%= button_to 'Return', idea_conversations_path(@idea), class: 'btn btn-primary btn-lg'  %>
         </div>

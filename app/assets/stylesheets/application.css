@@ -19,8 +19,10 @@
 
 body {
   font-family: helvetica;
-  /*background: linear-gradient(-90deg, #122452, #668cd0);*/
-  background-image: url('https://www.xmple.com/wallpaper/grey-white-gradient-linear-2560x1600-c2-808080-ffffff-a-90-f-14.svg');
+  background: linear-gradient(#849cda, #4d6ba2);
+  /*background-image: url('yellow4.png');*/
+  background-size:cover;
+
 }
 
 .ideasection {
@@ -93,4 +95,8 @@ img {
 
 .nav-pills{
   background-image: url('https://ak2.picdn.net/shutterstock/videos/15021937/thumb/1.jpg')
+}
+
+#home-logo {
+  /*margin-bottom: 25em;*/
 }
