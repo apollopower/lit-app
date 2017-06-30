@@ -1,21 +1,14 @@
 class IdeasController < ApplicationController
-  expose(:id) {params[:id]}
+  before_action :find_idea, only: [:show,:edit,:update,:destroy]
 
   def index
     @ideas = Idea.all
-    #following code to display matching recipes in descending order from the time they were created
-    @ideas = @ideas.favorited_by(params[:favorited]) if params[:favorited].present?
     if params[:search]
-      #   @ideas = Idea.search(params[:search]).joins(:upvotes).group(:id).order("count(*) desc")
-      # else
-      #   @ideas = Idea.all.joins(:upvotes).group(:id).order("count(*) desc")
-
      @ideas = Idea.search(params[:search]).order("created_at DESC")
-   else
-    #  @ideas = Idea.all.order("created_at DESC")
-    @ideas= Idea.sort_by_date
-   end
-     end
+    else
+      @ideas= Idea.sort_by_date
+    end
+  end
 
   def sort_by_oldest_first
     @ideas= Idea.sort_by_date("ASC")
@@ -28,7 +21,6 @@ class IdeasController < ApplicationController
   end
 
   def show
-    @idea = Idea.find(params[:id])
     @comment = Comment.new
     @comments = @idea.comments.order('created_at DESC')
   end
@@ -38,7 +30,6 @@ class IdeasController < ApplicationController
   end
 
   def edit
-    @idea = Idea.find(params[:id])
   end
 
   def create
@@ -55,8 +46,6 @@ class IdeasController < ApplicationController
   end
 
   def udpate
-    @idea = Idea.find(params[:id])
-
     if @idea.update(idea_params)
       redirect_to @idea
     else
@@ -65,7 +54,6 @@ class IdeasController < ApplicationController
   end
 
   def destroy
-    @idea = Idea.find(params[:id])
     @idea.destroy
     redirect_to ideas_path
   end
@@ -75,6 +63,10 @@ class IdeasController < ApplicationController
 
   def idea_params
     params.require(:idea).permit(:title,:summary, :description, :problem, :guidance, :image, :category)
+  end
+
+  def find_idea
+    @idea = Idea.find(params[:id])
   end
 
 end
