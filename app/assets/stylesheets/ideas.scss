@@ -31,6 +31,10 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  color: white;
+}
+
 .container {
   text-align: center;
 
@@ -57,17 +61,23 @@ textarea {
    height: 10%;
  }
 
-
+#submitheader{
+  color:white;
+}
 
  .form-field{
    margin-bottom: 0;
    text-align: left;
-
  }
 
+ .form-box {
+   border-radius:5%;
+   font-size: 1.4em;
+   background-color: white;
+ }
  #catdropdown {
    background-color: white;
-   width: 40%;
+   width: 55%;
  }
 
 .submitter-pic{
@@ -185,6 +195,9 @@ img {
 
 #submitted-by{
   font-size: 25px;
+  a {
+    color: white;
+  }
 }
 
 // comments

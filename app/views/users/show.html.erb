@@ -3,7 +3,7 @@
 	<%=  image_tag @user.avatar_url, id: 'profile-pic' %>
 <div class="container">
 
-		<h2 id="username"><%=@user.name %></h2>
+		<h1 id="username"><%=@user.name %></h1>
 
 			<div class="social-links">
 				<ul>
@@ -18,25 +18,25 @@
 
 	<div class="container">
     <div class="row">
-      <div class="col-sm-6 col-md-4">
+      <div class="col-sm-6 col-md-4 thumbnail-round">
         <div class="thumbnail">
 					<h3>About</h3>
-					<%= @user.bio %>
+					<p><%= @user.bio %></p>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-6 col-md-4">
+      <div class="col-sm-6 col-md-4 thumbnail-round">
         <div class="thumbnail">
 					<h3>Skills and Strengths</h3>
-					<%= @user.skills %>
+					<p><%= @user.skills %></p>
         </div>
       </div>
     </div>
   </div>
 
 
-	<h3> My Ideas </h3>
+	<h2 id="my-ideas"> My Ideas </h2>
 
 	<div class="container">
 		<div class="ideas-center">
@@ -46,7 +46,7 @@
 						<div class="thumbnail">
 							<%= (image_tag(idea.image_url().to_s)) %>
 							<div class="caption">
-								<h5><%= idea.title %></h5>
+								<h3><%= idea.title %></h3>
 								<p><%= button_to "View Idea", idea_path(idea), method: :get %></p>
 							</div>
 						</div>

@@ -42,10 +42,15 @@
 
 #username{
 	margin-bottom:0;
+	color: white;
 }
 #sender-pic {
 	max-width: 4em;
 	border-radius: 50%;
+}
+
+#my-ideas {
+	color: white;
 }
 
 .profile-requests {
@@ -56,4 +61,19 @@
 .line{
 	border-bottom: 1px solid grey;
 	padding-bottom: 1em;
+}
+
+.thumbnail {
+	h3 {
+		margin-top: 0;
+	}
+	p {
+		font-size: 1.2em;
+	}
+}
+
+.caption {
+	input {
+		font-size: 1.2em;
+	}
 }
