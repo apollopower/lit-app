@@ -1,24 +1,18 @@
 class UsersController < ApplicationController
+	before_action :find_user, only: [:show,:update]
 
 	def show
-    @user = User.find(params[:id])
 	end
 
   def update
-    @user = User.find(params[:id])
-		# @user = current_user
-
-  if @user.update!(user_params)
-    redirect_to usersprofile_path
-  else
-    # redirect_to account_path
-    redirect_to editusersprofile_path
-
-  end
-end
+	  if @user.update!(user_params)
+	    redirect_to usersprofile_path
+	  else
+	    redirect_to editusersprofile_path
+	  end
+	end
 
   def view
-     
   end
 
 
@@ -28,5 +22,8 @@ end
   def user_params
   	params.permit(:bio, :skills, :github, :linkedin, :twitter)
   end
-end
 
+	def find_user
+		@user = User.find(params[:id])
+	end
+end
