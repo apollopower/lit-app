@@ -1,9 +1,9 @@
 <% if current_user == @conversation.author%>
   <%= image_tag @conversation.recipient.avatar_url, id: 'conversation-pic' %>
-  <h2><%= "Brainstorming with " + @conversation.recipient.first_name %></h2>
+  <h2 class="brainstorming"><%= "Brainstorming with " + @conversation.recipient.first_name %></h2>
 <% else %>
   <%= image_tag @conversation.author.avatar_url, id: 'conversation-pic' %>
-  <h2><%= "Brainstorming with " + @conversation.author.first_name %></h2>
+  <h2 class="brainstorming"><%= "Brainstorming with " + @conversation.author.first_name %></h2>
 <% end %>
 
 

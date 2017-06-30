@@ -2,7 +2,7 @@
 <% if current_user %>
 
 <% end %>
-<h1>Submit an Idea</h1>
+<h1 id="submitheader">Submit Your Idea</h1>
 
 <%= render 'form' %>
 
@@ -19,9 +19,9 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Idea Succesfully Created!</h4>
       </div>
-      <!-- <div class="modal-body">
-        ...
-      </div> -->
+      <div class="modal-body">
+        <h3>Idea Succesfully Created!</h3>
+      </div>
       <div class="modal-footer">
         <button type="button" class="save">Return to Ideas</button>
       </div>
