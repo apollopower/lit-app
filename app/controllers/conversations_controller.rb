@@ -1,10 +1,11 @@
 class ConversationsController < ApplicationController
+  before_action :find_conversation, only: [:show,:update]
+
   def index
     @conversations = Conversation.all
   end
 
   def show
-    @conversation = Conversation.find(params[:id])
   end
 
   def new
@@ -22,7 +23,6 @@ class ConversationsController < ApplicationController
   end
 
   def update
-    @conversation = Conversation.find(params[:id])
     if @conversation.update!(verify: true)
       is_verified = true
       ActivityBroadcastJob.perform_later(current_user, @conversation, @conversation.id, is_verified)
@@ -32,4 +32,9 @@ class ConversationsController < ApplicationController
     end
   end
 
+  private
+
+  def find_conversation
+    @conversation = Conversation.find(params[:id])
+  end
 end
