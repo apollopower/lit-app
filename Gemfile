@@ -63,5 +63,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'twilio-ruby' # for interacting with twilio
 gem 'envyable' # for managing environment variables
-gem 'redis'
-ruby "2.4.1"
+
+ruby "2.3.1"
